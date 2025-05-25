@@ -31,7 +31,7 @@ export const DeadlockPage = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-md p-5">
-                <h3 className="font-semibold text-lg mb-3 text-red-700">Cenário Clássico de Deadlock</h3>
+                <h3 className="font-semibold text-lg mb-3 text-purple-700">Cenário Clássico de Deadlock</h3>
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-3 rounded-md">
                     <p className="text-sm font-medium text-gray-700 mb-1">Transação 1:</p>
@@ -49,8 +49,8 @@ export const DeadlockPage = () => {
                     </ol>
                   </div>
                   
-                  <div className="bg-red-50 p-3 rounded-md">
-                    <p className="text-sm text-red-700">
+                  <div className="bg-purple-50 p-3 rounded-md">
+                    <p className="text-sm text-black-700">
                       <strong>Resultado:</strong> Ambas as transações ficam bloqueadas indefinidamente, esperando por recursos que nunca serão liberados.
                     </p>
                   </div>
@@ -58,13 +58,13 @@ export const DeadlockPage = () => {
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-5">
-                <h3 className="font-semibold text-lg mb-3 text-blue-700">Quatro Condições para o Deadlock</h3>
+                <h3 className="font-semibold text-lg mb-3 text-purple-700">Quatro Condições para o Deadlock</h3>
                 <p className="text-sm text-gray-700 mb-3">
                   Todas as quatro condições devem estar presentes para que ocorra um deadlock:
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-2 mt-0.5">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-2 mt-0.5">
                       <span className="text-xs font-medium">1</span>
                     </div>
                     <p className="text-gray-700">
@@ -72,7 +72,7 @@ export const DeadlockPage = () => {
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-2 mt-0.5">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-2 mt-0.5">
                       <span className="text-xs font-medium">2</span>
                     </div>
                     <p className="text-gray-700">
@@ -80,7 +80,7 @@ export const DeadlockPage = () => {
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-2 mt-0.5">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-2 mt-0.5">
                       <span className="text-xs font-medium">3</span>
                     </div>
                     <p className="text-gray-700">
@@ -88,7 +88,7 @@ export const DeadlockPage = () => {
                     </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-2 mt-0.5">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-2 mt-0.5">
                       <span className="text-xs font-medium">4</span>
                     </div>
                     <p className="text-gray-700">
@@ -108,12 +108,12 @@ export const DeadlockPage = () => {
             <DeadlockDemo />
           </section>
           
-          <section className="bg-blue-50 rounded-lg p-6">
+          <section className="bg-purple-50 rounded-lg p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Prevenção e Tratamento de Deadlocks</h2>
             
             <div className="space-y-6">
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">Estratégias de Prevenção de Deadlocks</h3>
+                <h3 className="font-semibold text-lg mb-2 text-purple-700">Estratégias de Prevenção de Deadlocks</h3>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>
                     <span className="font-medium">Ordenação de Recursos:</span> Sempre adquira os bloqueios em uma ordem consistente entre todas as transações. Se todas acessarem os recursos na mesma ordem, a espera circular não pode ocorrer.
@@ -131,7 +131,7 @@ export const DeadlockPage = () => {
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">Como os Sistemas de Banco de Dados Lidam com Deadlocks</h3>
+                <h3 className="font-semibold text-lg mb-2 text-purple-700">Como os Sistemas de Banco de Dados Lidam com Deadlocks</h3>
                 <p className="text-gray-700 mb-3">
                   Diferentes sistemas de banco de dados lidam com deadlocks de maneiras variadas:
                 </p>
@@ -152,7 +152,7 @@ export const DeadlockPage = () => {
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">Melhores Práticas para Desenvolvedores de Aplicações</h3>
+                <h3 className="font-semibold text-lg mb-2 text-purple-700">Melhores Práticas para Desenvolvedores de Aplicações</h3>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>Mantenha as transações o mais curtas possível para reduzir a chance de conflitos</li>
                   <li>Acesse as tabelas na mesma ordem em todas as transações</li>

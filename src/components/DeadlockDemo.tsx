@@ -29,7 +29,7 @@ export const DeadlockDemo = () => {
     {
       id: 'tx1',
       name: 'Transação 1',
-      color: 'blue',
+      color: 'purple',
       locksHeld: [],
       locksWaiting: [],
       status: 'running',
@@ -47,7 +47,7 @@ export const DeadlockDemo = () => {
     {
       id: 'tx2',
       name: 'Transação 2',
-      color: 'green',
+      color: 'purple',
       locksHeld: [],
       locksWaiting: [],
       status: 'running',
@@ -83,7 +83,7 @@ export const DeadlockDemo = () => {
       {
         id: 'tx1',
         name: 'Transação 1',
-        color: 'blue',
+        color: 'purple',
         locksHeld: [],
         locksWaiting: [],
         status: 'running',
@@ -293,7 +293,7 @@ export const DeadlockDemo = () => {
       <div className="mb-6 flex gap-4">
         <button
           onClick={() => setIsRunning(!isRunning)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
           aria-label={isRunning ? 'Pausar simulação' : 'Iniciar simulação'}
         >
           {isRunning ? <Pause size={20} /> : <Play size={20} />}
