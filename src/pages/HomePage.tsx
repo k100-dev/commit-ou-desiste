@@ -163,12 +163,12 @@ export const HomePage = () => {
       {/* Call to Action */}
       <section className="py-12 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-6">Ready to master database transactions?</h2>
+          <h2 className="text-2xl font-bold mb-6">Pronto para masterizar os conceitos de transação?</h2>
           <Link
             to="/transactions"
             className="px-8 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors inline-flex items-center"
           >
-            Start Learning Now <ArrowRight className="ml-2 h-4 w-4" />
+            Comece aprendendo agora! <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
       </section>
