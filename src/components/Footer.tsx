@@ -3,7 +3,7 @@ import { Database, Github, ExternalLink } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="bg-violet-900 text-white py-8">
+    <footer className="bg-purple-900 text-white py-8">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
@@ -38,7 +38,7 @@ export const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-6 pt-6 border-t border-slate-700 text-center text-slate-300 text-sm">
+        <div className="mt-5 pt-5 border-t border-gray-700 text-center text-slate-300 text-sm">
           © {new Date().getFullYear()} Site Educacional Commit ou Desiste. Criado para fins acadêmicos.
         </div>
       </div>
