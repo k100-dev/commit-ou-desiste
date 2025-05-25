@@ -100,7 +100,7 @@ export const AcidProperties = () => {
             <div className="p-4 flex justify-center">
               <div className="relative">
                 <div className="flex space-x-2 mb-1">
-                  <div className="w-24 h-8 bg-blue-100 rounded-md border border-blue-200 flex items-center justify-center text-xs font-medium text-blue-700">
+                  <div className="w-24 h-8 bg-purple-100 rounded-md border border-purple-200 flex items-center justify-center text-xs font-medium text-purple-700">
                     Transação A
                   </div>
                   <div className="w-24 h-8 bg-green-100 rounded-md border border-green-200 flex items-center justify-center text-xs font-medium text-green-700">
@@ -111,7 +111,7 @@ export const AcidProperties = () => {
                 <RadioTower size={20} className="text-amber-600 absolute -left-6 top-12" aria-label="Transmissão de rádio" />
                 
                 <div className="pl-6 space-y-2 mt-4">
-                  <div className="h-1 w-full bg-blue-200 rounded"></div>
+                  <div className="h-1 w-full bg-purple-200 rounded"></div>
                   <div className="h-1 w-full bg-green-200 rounded"></div>
                 </div>
                 
@@ -126,15 +126,15 @@ export const AcidProperties = () => {
         <AnimatedCard
           title="Durabilidade"
           icon={<Database size={24} aria-label="Durabilidade" />}
-          className="border-l-4 border-l-blue-500"
+          className="border-l-4 border-l-purple-500"
         >
           <div className="space-y-4">
             <p className="text-gray-700">
               Durabilidade garante que, uma vez que uma transação tenha sido confirmada, ela permanecerá confirmada mesmo em caso de falha no sistema, como queda de energia ou travamento.
             </p>
             
-            <div className="bg-blue-50 p-4 rounded-md">
-              <h4 className="font-medium text-blue-700 mb-2">Exemplo no mundo real:</h4>
+            <div className="bg-purple-50 p-4 rounded-md">
+              <h4 className="font-medium text-purple-700 mb-2">Exemplo no mundo real:</h4>
               <p className="text-sm text-gray-700">
                 Quando você faz uma compra online e vê "Pedido Confirmado," as informações do pedido persistem mesmo que o site trave imediatamente após.
               </p>
@@ -144,7 +144,7 @@ export const AcidProperties = () => {
               <div className="flex flex-col items-center text-center gap-2">
                 <div className="flex items-center">
                   <Zap size={20} className="text-yellow-500 mr-1" aria-label="Raio" />
-                  <ShieldAlert size={24} className="text-blue-600" aria-label="Escudo de alerta" />
+                  <ShieldAlert size={24} className="text-purple-600" aria-label="Escudo de alerta" />
                 </div>
                 <p className="text-sm text-gray-700 max-w-xs">
                   Mesmo em caso de falhas do sistema, transações confirmadas são armazenadas permanentemente em memória não volátil (como discos rígidos) e podem ser recuperadas.

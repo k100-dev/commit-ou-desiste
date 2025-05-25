@@ -15,10 +15,10 @@ export const AcidPage = () => {
         
         <div className="grid grid-cols-1 gap-10">
           <section>
-            <div className="bg-blue-50 rounded-lg p-6 mb-8">
+            <div className="bg-purple-50 rounded-lg p-6 mb-8">
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
-                  <Database className="h-6 w-6 text-blue-600" />
+                <div className="flex-shrink-0 bg-purple-100 rounded-full p-3 mr-4">
+                  <Database className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-gray-800 mb-2">O que é ACID?</h2>
@@ -60,10 +60,10 @@ export const AcidPage = () => {
                 </p>
               </div>
               
-              <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-blue-500">
+              <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-purple-500">
                 <div className="flex items-center mb-3">
-                  <Database className="h-6 w-6 text-blue-600 mr-2" />
-                  <h3 className="text-xl font-semibold text-blue-700">D - Durabilidade</h3>
+                  <Database className="h-6 w-6 text-purple-600 mr-2" />
+                  <h3 className="text-xl font-semibold text-purple-700">D - Durabilidade</h3>
                 </div>
                 <p className="text-gray-700">
                   Uma vez que a transação é confirmada (commit), suas alterações permanecem permanentes, mesmo que o sistema falhe logo após.
@@ -77,7 +77,7 @@ export const AcidPage = () => {
             <AcidProperties />
           </section>
           
-          <section className="bg-blue-50 rounded-lg p-6">
+          <section className="bg-purple-50 rounded-lg p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Por que o ACID importa</h2>
             <div className="space-y-4">
               <p className="text-gray-700">
@@ -86,28 +86,28 @@ export const AcidPage = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                 <div className="bg-white p-5 rounded-md shadow-sm">
-                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Sistemas Financeiros</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-purple-700">Sistemas Financeiros</h3>
                   <p className="text-gray-700">
                     Aplicações bancárias precisam de total confiabilidade para transações como transferências de dinheiro. Uma transação parcial pode causar desaparecimento ou duplicação de valores.
                   </p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-md shadow-sm">
-                  <h3 className="font-semibold text-lg mb-2 text-blue-700">E-commerce</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-purple-700">E-commerce</h3>
                   <p className="text-gray-700">
                     O processamento de pedidos envolve atualizar estoque, processar pagamentos e criar registros. ACID garante que o cliente não seja cobrado se o pedido não for concluído.
                   </p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-md shadow-sm">
-                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Registros de Saúde</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-purple-700">Registros de Saúde</h3>
                   <p className="text-gray-700">
                     Sistemas médicos precisam assegurar que dados do paciente nunca sejam corrompidos ou atualizados parcialmente, pois registros incompletos podem causar graves consequências.
                   </p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-md shadow-sm">
-                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Sistemas de Reservas</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-purple-700">Sistemas de Reservas</h3>
                   <p className="text-gray-700">
                     Sistemas de reserva de hotéis ou voos precisam garantir que as reservas sejam corretamente criadas ou canceladas, especialmente com múltiplos usuários tentando reservar o mesmo recurso.
                   </p>
@@ -115,7 +115,7 @@ export const AcidPage = () => {
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm mt-6">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">ACID vs. BASE: Modelos de Banco de Dados Diferentes</h3>
+                <h3 className="font-semibold text-lg mb-2 text-purple-700">ACID vs. BASE: Modelos de Banco de Dados Diferentes</h3>
                 <p className="text-gray-700 mb-3">
                   Nem todos os sistemas de banco de dados priorizam a conformidade ACID. Bancos NoSQL frequentemente seguem o modelo BASE (Basicamente Disponível, Estado Suave, Consistência Eventual), que sacrifica um pouco de consistência para garantir maior disponibilidade e tolerância a partições.
                 </p>
