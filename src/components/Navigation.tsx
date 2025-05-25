@@ -33,7 +33,7 @@ export const Navigation = () => {
       }`}
     >
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <NavLink to="/" className="flex items-center space-x-2 text-blue-600">
+        <NavLink to="/" className="flex items-center space-x-2 text-purple-600">
           <Database className="h-6 w-6" />
           <span className="text-xl font-bold">Commit ou Desiste</span>
         </NavLink>
@@ -45,8 +45,8 @@ export const Navigation = () => {
               key={link.path} 
               to={link.path} 
               className={({ isActive }) => 
-                `transition-colors duration-300 hover:text-blue-600 ${
-                  isActive ? 'text-blue-600 font-medium' : 'text-gray-700'
+                `transition-colors duration-300 hover:text-purple-600 ${
+                  isActive ? 'text-purple-600 font-medium' : 'text-gray-700'
                 }`
               }
             >
@@ -57,7 +57,7 @@ export const Navigation = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-gray-700 hover:text-blue-600"
+          className="md:hidden text-gray-700 hover:text-purple-600"
           onClick={toggleMenu}
           aria-label="Alternar menu"
         >
@@ -75,7 +75,7 @@ export const Navigation = () => {
                 to={link.path} 
                 className={({ isActive }) => 
                   `px-2 py-2 rounded transition-colors duration-300 ${
-                    isActive ? 'bg-blue-100 text-blue-600 font-medium' : 'text-gray-700 hover:bg-gray-100'
+                    isActive ? 'bg-purple-100 text-purple-600 font-medium' : 'text-gray-700 hover:bg-gray-100'
                   }`
                 }
                 onClick={() => setIsMenuOpen(false)}
