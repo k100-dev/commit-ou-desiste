@@ -6,39 +6,39 @@ import { InteractiveDemo } from '../components/InteractiveDemo';
 export const TransactionsPage = () => {
   const transactionSteps = [
     {
-      title: "What is a Database Transaction?",
+      title: "O que é uma Transação de Banco de Dados?",
       content: (
         <div className="space-y-4">
           <p className="text-gray-700">
-            A database transaction is a logical unit of work that contains one or more database operations (such as inserts, updates, or deletes). Transactions provide a way to group operations together in an "all-or-nothing" manner.
+            Uma transação de banco de dados é uma unidade lógica de trabalho que contém uma ou mais operações (como inserções, atualizações ou exclusões). Transações permitem agrupar operações de forma "tudo ou nada".
           </p>
           <div className="bg-blue-50 p-4 rounded-md">
-            <h4 className="font-medium text-blue-700 mb-2">Key characteristics:</h4>
+            <h4 className="font-medium text-blue-700 mb-2">Características principais:</h4>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
-              <li>A transaction represents a single unit of work</li>
-              <li>It may consist of multiple database operations</li>
-              <li>Either all operations succeed, or none of them take effect</li>
-              <li>Once committed, changes become permanent</li>
+              <li>Uma transação representa uma única unidade de trabalho</li>
+              <li>Pode conter múltiplas operações no banco de dados</li>
+              <li>Ou todas as operações são bem-sucedidas, ou nenhuma tem efeito</li>
+              <li>Uma vez confirmadas, as mudanças se tornam permanentes</li>
             </ul>
           </div>
         </div>
       )
     },
     {
-      title: "Transaction Workflow",
+      title: "Fluxo de uma Transação",
       content: (
         <div className="space-y-4">
           <p className="text-gray-700">
-            A typical transaction follows these steps:
+            Uma transação típica segue os seguintes passos:
           </p>
           
           <div className="flex flex-col items-center space-y-2 py-4">
             <div className="bg-blue-100 text-blue-800 font-medium px-4 py-2 rounded-md w-48 text-center">
-              BEGIN TRANSACTION
+              INICIAR TRANSAÇÃO
             </div>
             <ArrowDown className="text-gray-400" size={20} />
             <div className="bg-gray-100 text-gray-800 px-4 py-2 rounded-md w-48 text-center">
-              Database Operations
+              Operações no Banco de Dados
             </div>
             <ArrowDown className="text-gray-400" size={20} />
             <div className="flex space-x-4">
@@ -57,14 +57,14 @@ export const TransactionsPage = () => {
             <div className="bg-green-50 p-4 rounded-md">
               <h4 className="font-medium text-green-700 mb-2">COMMIT</h4>
               <p className="text-sm text-gray-700">
-                Makes all changes made during the transaction permanent. After a COMMIT, other users can see your changes, and you cannot roll back the transaction.
+                Torna todas as alterações feitas durante a transação permanentes. Após um COMMIT, outros usuários podem ver suas alterações, e você não pode desfazer a transação.
               </p>
             </div>
             
             <div className="bg-red-50 p-4 rounded-md">
               <h4 className="font-medium text-red-700 mb-2">ROLLBACK</h4>
               <p className="text-sm text-gray-700">
-                Cancels all changes made during the transaction and restores the database to its state before the transaction began. Use ROLLBACK if an error occurs or you decide not to complete the transaction.
+                Cancela todas as alterações feitas durante a transação e restaura o banco de dados ao estado anterior ao início da transação. Use ROLLBACK se ocorrer um erro ou se decidir não concluir a transação.
               </p>
             </div>
           </div>
@@ -72,36 +72,36 @@ export const TransactionsPage = () => {
       )
     },
     {
-      title: "SQL Example: Bank Transfer",
+      title: "Exemplo SQL: Transferência Bancária",
       content: (
         <div className="space-y-4">
           <p className="text-gray-700">
-            Here's a simple SQL example of a bank transfer transaction:
+            Aqui está um exemplo simples de uma transação de transferência bancária em SQL:
           </p>
           
           <div className="bg-gray-800 text-gray-200 p-4 rounded-md font-mono text-sm">
-            <pre>{`-- Start a transaction
+            <pre>{`-- Iniciar uma transação
 BEGIN TRANSACTION;
 
--- Withdraw $100 from Account A
+-- Retirar $100 da Conta A
 UPDATE accounts 
 SET balance = balance - 100 
 WHERE account_id = 'A';
 
--- Deposit $100 to Account B
+-- Depositar $100 na Conta B
 UPDATE accounts 
 SET balance = balance + 100 
 WHERE account_id = 'B';
 
--- If both operations succeeded, commit the changes
+-- Se ambas as operações forem bem-sucedidas, confirmar as alterações
 COMMIT;
 
--- If any operation failed, we would roll back
+-- Se alguma operação falhar, desfazemos tudo
 -- ROLLBACK;`}</pre>
           </div>
           
           <p className="text-gray-700">
-            This transaction ensures that money is neither created nor destroyed—it's simply moved from one account to another. If either the withdrawal or deposit fails, the entire transaction is rolled back.
+            Esta transação garante que o dinheiro não seja criado nem destruído — apenas transferido de uma conta para outra. Se a retirada ou o depósito falhar, toda a transação é desfeita.
           </p>
         </div>
       )
@@ -112,9 +112,9 @@ COMMIT;
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <div className="mb-10 text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">Database Transactions</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">Transações de Banco de Dados</h1>
           <p className="text-xl text-gray-600">
-            Understanding the fundamental building blocks of reliable database operations
+            Compreendendo os blocos fundamentais para operações confiáveis em bancos de dados
           </p>
         </div>
         
@@ -122,46 +122,46 @@ COMMIT;
           <section>
             <InteractiveDemo 
               steps={transactionSteps}
-              title="Database Transactions Explained"
+              title="Transações de Banco de Dados Explicadas"
             />
           </section>
           
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
               <Database className="mr-2 text-blue-600" size={24} />
-              Try It Yourself: COMMIT and ROLLBACK
+              Experimente: COMMIT e ROLLBACK
             </h2>
             <CommitRollbackDemo />
           </section>
           
           <section className="bg-blue-50 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Key Takeaways</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Principais Conceitos</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white p-4 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">The "All or Nothing" Principle</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">O Princípio do "Tudo ou Nada"</h3>
                 <p className="text-gray-700">
-                  Transactions ensure that either all of the operations complete successfully, or none of them have any effect on the database. This prevents partial updates that could leave your data in an inconsistent state.
+                  Transações garantem que todas as operações sejam concluídas com sucesso ou que nenhuma tenha efeito no banco de dados. Isso evita atualizações parciais que podem deixar os dados inconsistentes.
                 </p>
               </div>
               
               <div className="bg-white p-4 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">When to Use Transactions</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">Quando Usar Transações</h3>
                 <p className="text-gray-700">
-                  Use transactions whenever you have multiple related database operations that must succeed or fail as a group. Common examples include transferring money between accounts, processing an order with inventory updates, or user registration with multiple tables.
+                  Use transações sempre que houver múltiplas operações relacionadas no banco de dados que devem ter sucesso ou falhar juntas. Exemplos comuns incluem transferências bancárias, processamento de pedidos ou cadastros com várias tabelas.
                 </p>
               </div>
               
               <div className="bg-white p-4 rounded-md shadow-sm">
                 <h3 className="font-semibold text-lg mb-2 text-blue-700">COMMIT vs. ROLLBACK</h3>
                 <p className="text-gray-700">
-                  COMMIT makes changes permanent and visible to other users. ROLLBACK undoes all changes made within the transaction, returning the database to its previous state. Always include error handling to ROLLBACK when problems occur.
+                  COMMIT torna as alterações permanentes e visíveis para outros usuários. ROLLBACK desfaz todas as alterações feitas dentro da transação, retornando ao estado anterior. Sempre inclua tratamento de erro para usar ROLLBACK quando necessário.
                 </p>
               </div>
               
               <div className="bg-white p-4 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">Transaction Scope</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">Escopo da Transação</h3>
                 <p className="text-gray-700">
-                  Keep transactions as short as possible while still maintaining data integrity. Long-running transactions can lead to performance issues, lock contention, and concurrency problems.
+                  Mantenha transações tão curtas quanto possível, sem comprometer a integridade dos dados. Transações longas podem causar problemas de desempenho, bloqueios e concorrência.
                 </p>
               </div>
             </div>
