@@ -144,7 +144,7 @@ export const AcidProperties = () => {
               <div className="flex flex-col items-center text-center gap-2">
                 <div className="flex items-center">
                   <Zap size={20} className="text-yellow-500 mr-1" aria-label="Raio" />
-                  <ShieldAlert size={24} className="text-purple-600" aria-label="Escudo de alerta" />
+                  <ShieldAlert size={24} className="text-blue-600" aria-label="Escudo de alerta" />
                 </div>
                 <p className="text-sm text-gray-700 max-w-xs">
                   Mesmo em caso de falhas do sistema, transações confirmadas são armazenadas permanentemente em memória não volátil (como discos rígidos) e podem ser recuperadas.

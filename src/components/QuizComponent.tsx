@@ -99,11 +99,11 @@ export const QuizComponent = () => {
 
     return (
       <div className="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
-        <h3 className="text-2xl font-bold mb-6 text-center text-blue-600">Resultado do Quiz</h3>
+        <h3 className="text-2xl font-bold mb-6 text-center text-purple-600">Resultado do Quiz</h3>
 
         <div className="text-center mb-8">
-          <div className="inline-block p-4 bg-blue-50 rounded-full mb-4">
-            <div className="text-3xl font-bold text-blue-600">{score}/{questions.length}</div>
+          <div className="inline-block p-4 bg-purple-50 rounded-full mb-4">
+            <div className="text-3xl font-bold text-purple-600">{score}/{questions.length}</div>
             <div className="text-sm text-gray-600">({percentage.toFixed(0)}%)</div>
           </div>
 
@@ -114,7 +114,7 @@ export const QuizComponent = () => {
           </p>
         </div>
 
-        <div className="bg-blue-50 p-4 rounded-lg mb-6">
+        <div className="bg-purple-50 p-4 rounded-lg mb-6">
           <h4 className="font-semibold mb-2">E agora?</h4>
           <p className="text-sm text-gray-700">
             Reveja os conceitos de transações em banco de dados que você teve mais dificuldade, especialmente aqueles relacionados às perguntas erradas.
@@ -124,7 +124,7 @@ export const QuizComponent = () => {
 
         <button
           onClick={restartQuiz}
-          className="w-full py-3 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium"
+          className="w-full py-3 px-4 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors font-medium"
         >
           Reiniciar Quiz
         </button>
@@ -142,10 +142,10 @@ export const QuizComponent = () => {
           <p className="text-sm font-medium text-gray-600">Pontuação: {score}/{currentQuestion}</p>
         </div>
 
-        <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-100">
+        <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-100">
           <div 
             style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500"
+            className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500 transition-all duration-500"
           ></div>
         </div>
       </div>
@@ -160,7 +160,7 @@ export const QuizComponent = () => {
             disabled={selectedOption !== null}
             className={`w-full text-left p-4 rounded-md transition-all duration-200 ${
               selectedOption === null
-                ? 'hover:bg-blue-50 bg-white border border-gray-200'
+                ? 'hover:bg-purple-50 bg-white border border-gray-200'
                 : selectedOption === index
                   ? index === question.correctAnswer
                     ? 'bg-green-100 border border-green-300'
@@ -187,7 +187,7 @@ export const QuizComponent = () => {
       </div>
 
       {showExplanation && (
-        <div className="bg-blue-50 p-4 rounded-lg mb-6 animate-fade-in">
+        <div className="bg-purple-50 p-4 rounded-lg mb-6 animate-fade-in">
           <h4 className="font-semibold mb-2">Explicação</h4>
           <p className="text-sm text-gray-700">{question.explanation}</p>
         </div>
@@ -200,7 +200,7 @@ export const QuizComponent = () => {
           className={`py-2 px-6 rounded-md ${
             selectedOption === null
               ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-              : 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-purple-600 text-white hover:bg-purple-700'
           } transition-colors`}
         >
           {currentQuestion < questions.length - 1 ? 'Próxima Pergunta' : 'Finalizar Quiz'}
