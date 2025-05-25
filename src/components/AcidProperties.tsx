@@ -12,7 +12,7 @@ export const AcidProperties = () => {
         <AnimatedCard
           title="Atomicidade"
           icon={<Atom size={24} aria-label="Atomicidade" />}
-          className="border-l-4 border-l-violet-500"
+          className="border-l-4 border-l--500"
         >
           <div className="space-y-4">
             <p className="text-gray-700">
@@ -53,7 +53,7 @@ export const AcidProperties = () => {
         <AnimatedCard
           title="Consistência"
           icon={<ShieldCheck size={24} aria-label="Consistência" />}
-          className="border-l-4 border-l-emerald-500"
+          className="border-l-4 border-l--500"
         >
           <div className="space-y-4">
             <p className="text-gray-700">
@@ -83,7 +83,7 @@ export const AcidProperties = () => {
         <AnimatedCard
           title="Isolamento"
           icon={<Users size={24} aria-label="Isolamento" />}
-          className="border-l-4 border-l-amber-500"
+          className="border-l-4 border-l--500"
         >
           <div className="space-y-4">
             <p className="text-gray-700">
@@ -126,7 +126,7 @@ export const AcidProperties = () => {
         <AnimatedCard
           title="Durabilidade"
           icon={<Database size={24} aria-label="Durabilidade" />}
-          className="border-l-4 border-l-purple-500"
+          className="border-l-4 border-l--500"
         >
           <div className="space-y-4">
             <p className="text-gray-700">

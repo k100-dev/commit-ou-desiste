@@ -30,10 +30,10 @@ export const AcidPage = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-violet-500">
+              <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-blue-500">
                 <div className="flex items-center mb-3">
-                  <Atom className="h-6 w-6 text-violet-600 mr-2" />
-                  <h3 className="text-xl font-semibold text-violet-700">A - Atomicidade</h3>
+                  <Atom className="h-6 w-6 text-blue-600 mr-2" />
+                  <h3 className="text-xl font-semibold text-blue-700">A - Atomicidade</h3>
                 </div>
                 <p className="text-gray-700">
                   Todas as operações dentro de uma transação são concluídas com sucesso ou nenhuma delas é aplicada. Não existem transações parciais. É “tudo ou nada.”
@@ -60,10 +60,10 @@ export const AcidPage = () => {
                 </p>
               </div>
               
-              <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-purple-500">
+              <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-red-500">
                 <div className="flex items-center mb-3">
-                  <Database className="h-6 w-6 text-purple-600 mr-2" />
-                  <h3 className="text-xl font-semibold text-purple-700">D - Durabilidade</h3>
+                  <Database className="h-6 w-6 text-red-600 mr-2" />
+                  <h3 className="text-xl font-semibold text-red-700">D - Durabilidade</h3>
                 </div>
                 <p className="text-gray-700">
                   Uma vez que a transação é confirmada (commit), suas alterações permanecem permanentes, mesmo que o sistema falhe logo após.
