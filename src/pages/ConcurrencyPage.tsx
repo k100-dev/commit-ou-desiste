@@ -15,10 +15,10 @@ export const ConcurrencyPage = () => {
         
         <div className="grid grid-cols-1 gap-10">
           <section>
-            <div className="bg-amber-50 rounded-lg p-6 mb-8">
+            <div className="bg-purple-50 rounded-lg p-6 mb-8">
               <div className="flex items-start">
-                <div className="flex-shrink-0 bg-amber-100 rounded-full p-3 mr-4">
-                  <Share2 className="h-6 w-6 text-amber-600" />
+                <div className="flex-shrink-0 bg-purple-100 rounded-full p-3 mr-4">
+                  <Share2 className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
                   <h2 className="text-2xl font-bold text-gray-800 mb-2">O que é Concorrência?</h2>
@@ -31,7 +31,7 @@ export const ConcurrencyPage = () => {
             
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
               <div className="flex items-start mb-4">
-                <AlertTriangle className="text-amber-500 mr-3 flex-shrink-0 mt-1" size={24} />
+                <AlertTriangle className="text-purple-500 mr-3 flex-shrink-0 mt-1" size={24} />
                 <div>
                   <h3 className="text-xl font-bold mb-2">Por que Problemas de Concorrência Importam</h3>
                   <p className="text-gray-700">
@@ -41,29 +41,29 @@ export const ConcurrencyPage = () => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <div className="bg-red-50 p-4 rounded-md">
-                  <h4 className="font-medium text-red-700 mb-2">Atualizações Perdidas</h4>
+                <div className="bg-purple-50 p-4 rounded-md">
+                  <h4 className="font-medium text-purple-700 mb-2">Atualizações Perdidas</h4>
                   <p className="text-sm text-gray-700">
                     Quando duas transações leem e atualizam os mesmos dados, as mudanças de uma podem sobrescrever as da outra sem que nenhuma das duas perceba.
                   </p>
                 </div>
                 
-                <div className="bg-red-50 p-4 rounded-md">
-                  <h4 className="font-medium text-red-700 mb-2">Análise Inconsistente</h4>
+                <div className="bg-purple-50 p-4 rounded-md">
+                  <h4 className="font-medium text-purple-700 mb-2">Análise Inconsistente</h4>
                   <p className="text-sm text-gray-700">
                     Uma transação lê dados relacionados que estão sendo modificados por outra transação, resultando em uma análise baseada em dados inconsistentes.
                   </p>
                 </div>
                 
-                <div className="bg-red-50 p-4 rounded-md">
-                  <h4 className="font-medium text-red-700 mb-2">Cálculos Incorretos</h4>
+                <div className="bg-purple-50 p-4 rounded-md">
+                  <h4 className="font-medium text-purple-700 mb-2">Cálculos Incorretos</h4>
                   <p className="text-sm text-gray-700">
                     A lógica de negócio que depende de leituras consistentes do banco de dados pode gerar resultados incorretos quando os dados mudam no meio da transação.
                   </p>
                 </div>
                 
-                <div className="bg-red-50 p-4 rounded-md">
-                  <h4 className="font-medium text-red-700 mb-2">Corrupção de Dados</h4>
+                <div className="bg-purple-50 p-4 rounded-md">
+                  <h4 className="font-medium text-purple-700 mb-2">Corrupção de Dados</h4>
                   <p className="text-sm text-gray-700">
                     Em casos severos, atualizações inconsistentes podem levar à corrupção do banco, violando regras de integridade ou regras de negócio.
                   </p>
@@ -77,19 +77,19 @@ export const ConcurrencyPage = () => {
             <ConcurrencyIssues />
           </section>
           
-          <section className="bg-blue-50 rounded-lg p-6">
+          <section className="bg-purple-50 rounded-lg p-6">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Como Lidar com Problemas de Concorrência</h2>
             
             <div className="space-y-6">
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">1. Escolha o Nível de Isolamento Adequado</h3>
+                <h3 className="font-semibold text-lg mb-2 text-purple-700">1. Escolha o Nível de Isolamento Adequado</h3>
                 <p className="text-gray-700">
                   Selecione um nível de isolamento de transação apropriado às necessidades da sua aplicação, equilibrando requisitos de consistência com considerações de performance. Níveis de isolamento mais altos previnem mais problemas de concorrência, mas podem reduzir a taxa de transferência.
                 </p>
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">2. Use Mecanismos de Bloqueio</h3>
+                <h3 className="font-semibold text-lg mb-2 text-purple-700">2. Use Mecanismos de Bloqueio</h3>
                 <p className="text-gray-700 mb-3">
                   Sistemas de banco de dados fornecem vários mecanismos de bloqueio para controlar o acesso concorrente:
                 </p>
@@ -101,14 +101,14 @@ export const ConcurrencyPage = () => {
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">3. Implemente Controle Otimista de Concorrência</h3>
+                <h3 className="font-semibold text-lg mb-2 text-purple-700">3. Implemente Controle Otimista de Concorrência</h3>
                 <p className="text-gray-700">
                   Ao invés de bloquear recursos, o controle otimista de concorrência permite que as transações prossigam sem bloqueios, mas verifica na hora do commit se outra transação modificou os dados. Se forem detectados conflitos, a transação pode ser repetida ou rejeitada.
                 </p>
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">4. Projete para Concorrência</h3>
+                <h3 className="font-semibold text-lg mb-2 text-purple-700">4. Projete para Concorrência</h3>
                 <p className="text-gray-700 mb-3">
                   Ajuste o design da sua aplicação para minimizar problemas de concorrência:
                 </p>
