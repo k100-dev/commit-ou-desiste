@@ -13,7 +13,7 @@ export const Footer = () => {
           
           <div className="flex flex-col items-center md:items-end">
             <p className="text-slate-300 text-sm mb-2">
-              Um recurso educacional para estudantes de tecnologia
+              Unifil - Instituto Filadelfia Londrina
             </p>
             <div className="flex space-x-4">
               <a 
