@@ -136,7 +136,7 @@ export const HomePage = () => {
                 <div className="aspect-w-16 aspect-h-9 bg-blue-50 rounded-md p-4 flex items-center justify-center">
                   <div className="text-center">
                     <Database className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-                    <p className="text-gray-700 font-medium">Interactive simulations help you understand how transactions work in the real world</p>
+                    <p className="text-gray-700 font-medium">Simulações interativas ajudam você a entender como as transações funcionam no mundo real.</p>
                   </div>
                 </div>
                 
@@ -145,7 +145,7 @@ export const HomePage = () => {
                     to="/transactions"
                     className="py-3 px-4 bg-blue-100 text-blue-700 rounded-md font-medium text-center hover:bg-blue-200 transition-colors"
                   >
-                    Try Transaction Demo
+                    Testar Demo de Transação
                   </Link>
                   <Link
                     to="/deadlock"
