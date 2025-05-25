@@ -6,26 +6,26 @@ export const HomePage = () => {
   const features = [
     {
       icon: <Database className="h-6 w-6 text-blue-600" />,
-      title: 'Database Transactions',
-      description: 'Learn how transactions provide a reliable way to group operations in a database.',
+      title: 'Transações',
+      description: 'Aprenda como as transações oferecem uma forma confiável de agrupar operações em um banco de dados.',
       link: '/transactions'
     },
     {
       icon: <CheckCircle className="h-6 w-6 text-emerald-600" />,
-      title: 'ACID Properties',
-      description: 'Discover the four key properties that ensure reliable database processing.',
+      title: 'ACID',
+      description: 'Descubra as quatro propriedades essenciais que garantem o processamento confiável de bancos de dados.',
       link: '/acid'
     },
     {
       icon: <Users className="h-6 w-6 text-amber-600" />,
-      title: 'Concurrency Issues',
-      description: 'Understand the problems that can occur when multiple transactions run simultaneously.',
+      title: 'Problemas de Concorrência',
+      description: 'Entenda os problemas que podem ocorrer quando várias transações são executadas simultaneamente.',
       link: '/concurrency'
     },
     {
       icon: <Clock className="h-6 w-6 text-red-600" />,
       title: 'Deadlocks',
-      description: 'Learn what happens when transactions are stuck waiting for each other.',
+      description: 'Aprenda o que acontece quando transações ficam presas esperando umas pelas outras.',
       link: '/deadlock'
     }
   ];

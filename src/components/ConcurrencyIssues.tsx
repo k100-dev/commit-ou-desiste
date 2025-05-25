@@ -1,98 +1,114 @@
-import React, { useState } from 'react';
-import { AlertTriangle, RefreshCw, Ghost } from 'lucide-react';
-import { AnimatedCard } from './AnimatedCard';
+import React, { useState } from "react";
+import { AlertTriangle, RefreshCw, Ghost } from "lucide-react";
+import { AnimatedCard } from "./AnimatedCard";
 
 export const ConcurrencyIssues = () => {
-  const [activeTab, setActiveTab] = useState('dirty-read');
-  
+  const [activeTab, setActiveTab] = useState("dirty-read");
+
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-lg shadow-md overflow-hidden">
         <div className="flex border-b">
           <button
             className={`flex-1 py-3 px-4 font-medium text-sm ${
-              activeTab === 'dirty-read'
-                ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-600 hover:bg-gray-50'
+              activeTab === "dirty-read"
+                ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600"
+                : "text-gray-600 hover:bg-gray-50"
             }`}
-            onClick={() => setActiveTab('dirty-read')}
+            onClick={() => setActiveTab("dirty-read")}
           >
-            Dirty Read
+            Leitura Suja
           </button>
           <button
             className={`flex-1 py-3 px-4 font-medium text-sm ${
-              activeTab === 'non-repeatable'
-                ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-600 hover:bg-gray-50'
+              activeTab === "non-repeatable"
+                ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600"
+                : "text-gray-600 hover:bg-gray-50"
             }`}
-            onClick={() => setActiveTab('non-repeatable')}
+            onClick={() => setActiveTab("non-repeatable")}
           >
-            Non-Repeatable Read
+           Leitura Não Repetida
           </button>
           <button
             className={`flex-1 py-3 px-4 font-medium text-sm ${
-              activeTab === 'phantom'
-                ? 'bg-blue-50 text-blue-600 border-b-2 border-blue-600'
-                : 'text-gray-600 hover:bg-gray-50'
+              activeTab === "phantom"
+                ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600"
+                : "text-gray-600 hover:bg-gray-50"
             }`}
-            onClick={() => setActiveTab('phantom')}
+            onClick={() => setActiveTab("phantom")}
           >
-            Phantom Read
+            Leitura Fantasma
           </button>
         </div>
-        
+
         <div className="p-6">
-          {activeTab === 'dirty-read' && (
+          {activeTab === "dirty-read" && (
             <div className="space-y-4">
               <div className="flex items-start mb-4">
-                <AlertTriangle className="text-amber-500 mr-3 flex-shrink-0 mt-1" size={20} />
+                <AlertTriangle
+                  className="text-amber-500 mr-3 flex-shrink-0 mt-1"
+                  size={20}
+                />
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">Dirty Read</h3>
+                  <h3 className="font-semibold text-lg mb-1">Leitura Suja</h3>
                   <p className="text-gray-700">
-                    A dirty read occurs when a transaction reads data that has been modified by another transaction but not yet committed.
+               Uma leitura suja ocorre quando uma transação lê dados que foram modificados por outra transação, mas ainda não foram confirmados.
                   </p>
                 </div>
               </div>
-              
+
               <div className="bg-amber-50 p-4 rounded-md">
-                <h4 className="font-medium text-amber-700 mb-2">Real-world example:</h4>
+                <h4 className="font-medium text-amber-700 mb-2">
+                  Exemplo REAL:
+                </h4>
                 <p className="text-sm text-gray-700">
-                  Imagine you're checking your bank account balance while a deposit is being processed. You see the new higher balance, but the deposit transaction fails and is rolled back. You've just experienced a "dirty read" of data that was never actually committed.
+                 Imagine que você está verificando o saldo da sua conta bancária enquanto um depósito está sendo processado. Você vê o novo saldo mais alto, mas a transação de depósito falha e é desfeita. Você acabou de experimentar uma “leitura suja” de dados que nunca foram realmente confirmados.
                 </p>
               </div>
-              
+
               <div className="border border-gray-200 rounded-lg overflow-hidden">
                 <div className="bg-gray-50 p-3 border-b border-gray-200">
-                  <h4 className="font-medium text-gray-700">Dirty Read Scenario</h4>
+                  <h4 className="font-medium text-gray-700">
+                    Cenário de Leitura Suja
+                  </h4>
                 </div>
                 <div className="p-4">
                   <div className="flex flex-col space-y-4">
                     <div className="flex space-x-6">
                       <div className="w-1/2">
-                        <div className="text-center mb-2 font-medium text-blue-600">Transaction A</div>
+                        <div className="text-center mb-2 font-medium text-blue-600">
+                          Transação A
+                        </div>
                         <div className="border border-blue-200 rounded-md bg-blue-50 p-3 text-sm space-y-2">
                           <div className="bg-white p-2 rounded border border-blue-100">
                             BEGIN TRANSACTION;
                           </div>
                           <div className="bg-white p-2 rounded border border-blue-100">
-                            UPDATE accounts SET balance = balance - 100 WHERE id = 1;
-                            <span className="block text-xs text-gray-500 mt-1">/* Account balance is now $900 */</span>
+                            UPDATE accounts SET balance = balance - 100 WHERE id
+                            = 1;
+                            <span className="block text-xs text-gray-500 mt-1">
+                              /* Saldo da conta agora é $900 */
+                            </span>
                           </div>
                           <div className="bg-white p-2 rounded border border-blue-100 opacity-50">
-                            -- Some processing time...
+                            --  Processando... --
                           </div>
                         </div>
                       </div>
-                      
+
                       <div className="w-1/2">
-                        <div className="text-center mb-2 font-medium text-green-600">Transaction B</div>
+                        <div className="text-center mb-2 font-medium text-green-600">
+                          Transação B
+                        </div>
                         <div className="border border-green-200 rounded-md bg-green-50 p-3 text-sm space-y-2">
                           <div className="bg-white p-2 rounded border border-green-100">
                             BEGIN TRANSACTION;
                           </div>
                           <div className="bg-white p-2 rounded border border-green-100">
                             SELECT balance FROM accounts WHERE id = 1;
-                            <span className="block text-xs text-gray-500 mt-1">/* Reads $900 (dirty data) */</span>
+                            <span className="block text-xs text-gray-500 mt-1">
+                              /* Lê $900 (Info suja) */
+                            </span>
                           </div>
                           <div className="bg-white p-2 rounded border border-green-100">
                             COMMIT;
@@ -100,19 +116,23 @@ export const ConcurrencyIssues = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="w-1/2">
                       <div className="border border-blue-200 rounded-md bg-blue-50 p-3 text-sm space-y-2">
                         <div className="bg-white p-2 rounded border border-blue-100">
-                          ROLLBACK; -- Transaction A fails and rolls back
-                          <span className="block text-xs text-gray-500 mt-1">/* Account balance reverts to $1000 */</span>
+                          ROLLBACK; -- Transação A falha e da ROLLBACK
+                          <span className="block text-xs text-gray-500 mt-1">
+                            /* Saldo da conta é revertido $1000 */
+                          </span>
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="bg-red-50 p-3 rounded-md text-sm">
                       <p className="text-red-700">
-                        <strong>Problem:</strong> Transaction B reads and commits a balance of $900, but the actual balance is $1000 because Transaction A rolled back.
+                        <strong>Problema:</strong> Transação B lê e da o commit
+                        de saldo de $900, mas o saldo verdadeiro é $1000 por
+                        conta do ROLLBACK da Transação A.
                       </p>
                     </div>
                   </div>
@@ -120,51 +140,66 @@ export const ConcurrencyIssues = () => {
               </div>
             </div>
           )}
-          
-          {activeTab === 'non-repeatable' && (
+
+          {activeTab === "non-repeatable" && (
             <div className="space-y-4">
               <div className="flex items-start mb-4">
-                <RefreshCw className="text-amber-500 mr-3 flex-shrink-0 mt-1" size={20} />
+                <RefreshCw
+                  className="text-amber-500 mr-3 flex-shrink-0 mt-1"
+                  size={20}
+                />
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">Non-Repeatable Read</h3>
+                  <h3 className="font-semibold text-lg mb-1">
+                   Leitura Não Repetida
+                  </h3>
                   <p className="text-gray-700">
-                    A non-repeatable read occurs when a transaction reads the same row twice and gets different values because another committed transaction modified the data between the reads.
+                   Uma leitura não repetível ocorre quando uma transação lê a mesma linha duas vezes e obtém valores diferentes porque outra transação confirmada modificou os dados entre as leituras.
                   </p>
                 </div>
               </div>
-              
+
               <div className="bg-amber-50 p-4 rounded-md">
-                <h4 className="font-medium text-amber-700 mb-2">Real-world example:</h4>
+                <h4 className="font-medium text-amber-700 mb-2">
+                  Exemplo REAL:
+                </h4>
                 <p className="text-sm text-gray-700">
-                  Imagine you're generating a report that reads the same customer's data twice. Between those reads, another user updates the customer's information. Your report now contains inconsistent data, showing different values for the same customer.
+             Imagine que você está gerando um relatório que lê os dados do mesmo cliente duas vezes. Entre essas leituras, outro usuário atualiza as informações do cliente. Seu relatório agora contém dados inconsistentes, mostrando valores diferentes para o mesmo cliente.
                 </p>
               </div>
-              
+
               <div className="border border-gray-200 rounded-lg overflow-hidden">
                 <div className="bg-gray-50 p-3 border-b border-gray-200">
-                  <h4 className="font-medium text-gray-700">Non-Repeatable Read Scenario</h4>
+                  <h4 className="font-medium text-gray-700">
+                   Cenário de Leitura Não Repetida
+                  </h4>
                 </div>
                 <div className="p-4">
                   <div className="flex flex-col space-y-4">
                     <div className="flex space-x-6">
                       <div className="w-1/2">
-                        <div className="text-center mb-2 font-medium text-blue-600">Transaction A</div>
+                        <div className="text-center mb-2 font-medium text-blue-600">
+                          Transação A
+                        </div>
                         <div className="border border-blue-200 rounded-md bg-blue-50 p-3 text-sm space-y-2">
                           <div className="bg-white p-2 rounded border border-blue-100">
                             BEGIN TRANSACTION;
                           </div>
                           <div className="bg-white p-2 rounded border border-blue-100">
                             SELECT price FROM products WHERE id = 101;
-                            <span className="block text-xs text-gray-500 mt-1">/* Reads price: $10.00 */</span>
+                            <span className="block text-xs text-gray-500 mt-1">
+                              /* Lê o preço: $10.00 */
+                            </span>
                           </div>
                           <div className="bg-white p-2 rounded border border-blue-100 opacity-50">
-                            -- Other operations...
+                            -- Outras Operações... --
                           </div>
                         </div>
                       </div>
-                      
+
                       <div className="w-1/2">
-                        <div className="text-center mb-2 font-medium text-green-600">Transaction B</div>
+                        <div className="text-center mb-2 font-medium text-green-600">
+                          Transação B
+                        </div>
                         <div className="border border-green-200 rounded-md bg-green-50 p-3 text-sm space-y-2">
                           <div className="bg-white p-2 rounded border border-green-100">
                             BEGIN TRANSACTION;
@@ -178,22 +213,26 @@ export const ConcurrencyIssues = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="w-1/2">
                       <div className="border border-blue-200 rounded-md bg-blue-50 p-3 text-sm space-y-2">
                         <div className="bg-white p-2 rounded border border-blue-100">
                           SELECT price FROM products WHERE id = 101;
-                          <span className="block text-xs text-gray-500 mt-1">/* Now reads price: $12.00 */</span>
+                          <span className="block text-xs text-gray-500 mt-1">
+                            /* Agora lê o preço: $12.00 */
+                          </span>
                         </div>
                         <div className="bg-white p-2 rounded border border-blue-100">
                           COMMIT;
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="bg-red-50 p-3 rounded-md text-sm">
                       <p className="text-red-700">
-                        <strong>Problem:</strong> Transaction A reads different values for the same row in a single transaction, which can lead to inconsistencies in reports or calculations.
+                        <strong>Problema:</strong> Transação A lê valores
+                        diferentes em uma mesma transação em andamento, o que
+                        ocasiona em inconsistencias e problemas.
                       </p>
                     </div>
                   </div>
@@ -201,58 +240,74 @@ export const ConcurrencyIssues = () => {
               </div>
             </div>
           )}
-          
-          {activeTab === 'phantom' && (
+
+          {activeTab === "phantom" && (
             <div className="space-y-4">
               <div className="flex items-start mb-4">
-                <Ghost className="text-amber-500 mr-3 flex-shrink-0 mt-1" size={20} />
+                <Ghost
+                  className="text-amber-500 mr-3 flex-shrink-0 mt-1"
+                  size={20}
+                />
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">Phantom Read</h3>
+                  <h3 className="font-semibold text-lg mb-1">
+                    Leitura Fantasma
+                  </h3>
                   <p className="text-gray-700">
-                    A phantom read occurs when a transaction re-executes a query returning a set of rows that satisfy a search condition and finds that a different set of rows satisfy the condition than before—some rows have appeared or disappeared.
+                  Uma leitura fantasma ocorre quando uma transação executa novamente uma consulta que retorna um conjunto de linhas que satisfazem uma condição de busca e encontra que um conjunto diferente de linhas satisfaz a condição em relação à execução anterior.
                   </p>
                 </div>
               </div>
-              
+
               <div className="bg-amber-50 p-4 rounded-md">
-                <h4 className="font-medium text-amber-700 mb-2">Real-world example:</h4>
+                <h4 className="font-medium text-amber-700 mb-2">
+                  Exemplo REAL:
+                </h4>
                 <p className="text-sm text-gray-700">
-                  Imagine an inventory system that counts how many products are in stock within a price range. Your transaction first counts 5 items, performs some calculations, then counts again. Meanwhile, another transaction adds a new product in that price range. Your second count now shows 6 items, creating a "phantom" that wasn't there before.
+                 Imagine um sistema de inventário que conta quantos produtos estão em estoque dentro de uma faixa de preço. Sua transação primeiro conta 5 itens, realiza alguns cálculos, e depois conta novamente. Enquanto isso, outra transação adiciona um novo produto nessa faixa de preço. Sua segunda contagem agora mostra 6 itens, criando um "fantasma" que não estava lá antes.
                 </p>
               </div>
-              
+
               <div className="border border-gray-200 rounded-lg overflow-hidden">
                 <div className="bg-gray-50 p-3 border-b border-gray-200">
-                  <h4 className="font-medium text-gray-700">Phantom Read Scenario</h4>
+                  <h4 className="font-medium text-gray-700">
+                    Cenário de Leitura Fantasma
+                  </h4>
                 </div>
                 <div className="p-4">
                   <div className="flex flex-col space-y-4">
                     <div className="flex space-x-6">
                       <div className="w-1/2">
-                        <div className="text-center mb-2 font-medium text-blue-600">Transaction A</div>
+                        <div className="text-center mb-2 font-medium text-blue-600">
+                          Transação A
+                        </div>
                         <div className="border border-blue-200 rounded-md bg-blue-50 p-3 text-sm space-y-2">
                           <div className="bg-white p-2 rounded border border-blue-100">
                             BEGIN TRANSACTION;
                           </div>
                           <div className="bg-white p-2 rounded border border-blue-100">
-                            SELECT COUNT(*) FROM orders WHERE order_date = '2023-06-15';
-                            <span className="block text-xs text-gray-500 mt-1">/* Returns 10 orders */</span>
+                            SELECT COUNT(*) FROM orders WHERE order_date =
+                            '2023-06-15';
+                            <span className="block text-xs text-gray-500 mt-1">
+                              /* Saída de 10 Pedidos */
+                            </span>
                           </div>
                           <div className="bg-white p-2 rounded border border-blue-100 opacity-50">
-                            -- Process based on having 10 orders...
+                            -- Processa a informação se baseando em 10 pedidos... 
                           </div>
                         </div>
                       </div>
-                      
+
                       <div className="w-1/2">
-                        <div className="text-center mb-2 font-medium text-green-600">Transaction B</div>
+                        <div className="text-center mb-2 font-medium text-green-600">
+                          Transaction B
+                        </div>
                         <div className="border border-green-200 rounded-md bg-green-50 p-3 text-sm space-y-2">
                           <div className="bg-white p-2 rounded border border-green-100">
                             BEGIN TRANSACTION;
                           </div>
                           <div className="bg-white p-2 rounded border border-green-100">
-                            INSERT INTO orders (order_id, customer_id, order_date)
-                            VALUES (1001, 5, '2023-06-15');
+                            INSERT INTO orders (order_id, customer_id,
+                            order_date) VALUES (1001, 5, '2023-06-15');
                           </div>
                           <div className="bg-white p-2 rounded border border-green-100">
                             COMMIT;
@@ -260,22 +315,28 @@ export const ConcurrencyIssues = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="w-1/2">
                       <div className="border border-blue-200 rounded-md bg-blue-50 p-3 text-sm space-y-2">
                         <div className="bg-white p-2 rounded border border-blue-100">
-                          SELECT COUNT(*) FROM orders WHERE order_date = '2023-06-15';
-                          <span className="block text-xs text-gray-500 mt-1">/* Now returns 11 orders */</span>
+                          SELECT COUNT(*) FROM orders WHERE order_date =
+                          '2023-06-15';
+                          <span className="block text-xs text-gray-500 mt-1">
+                            /* Saída de 100 pedidos */
+                          </span>
                         </div>
                         <div className="bg-white p-2 rounded border border-blue-100">
                           COMMIT;
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="bg-red-50 p-3 rounded-md text-sm">
                       <p className="text-red-700">
-                        <strong>Problem:</strong> Transaction A sees different result sets for the same query within the same transaction, which can lead to logical errors in processing.
+                        <strong>Problema:</strong> A Transação A vê conjuntos de
+                        resultados diferentes para a mesma consulta dentro da
+                        mesma transação, o que pode levar a erros lógicos no
+                        processamento.
                       </p>
                     </div>
                   </div>
@@ -285,54 +346,74 @@ export const ConcurrencyIssues = () => {
           )}
         </div>
       </div>
-      
+
       <div className="bg-blue-50 p-5 rounded-lg">
-        <h3 className="font-semibold text-lg mb-3">Preventing Concurrency Issues with Isolation Levels</h3>
+        <h3 className="font-semibold text-lg mb-3">
+          Prevenindo Problemas de Concorrência com Níveis de Isolamento
+        </h3>
         <p className="text-gray-700 mb-4">
-          Database systems provide different transaction isolation levels to prevent these concurrency problems, with trade-offs between consistency and performance:
+          Os sistemas de banco de dados fornecem diferentes níveis de isolamento
+          de transações para prevenir esses problemas de concorrência, com
+          compensações entre consistência e desempenho:
         </p>
-        
+
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white rounded-lg overflow-hidden">
             <thead className="bg-blue-100">
               <tr>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-blue-700">Isolation Level</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-blue-700">Dirty Read</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-blue-700">Non-Repeatable Read</th>
-                <th className="px-4 py-3 text-left text-sm font-semibold text-blue-700">Phantom Read</th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-blue-700">
+                  Nível de Isolamento
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-blue-700">
+                  Leitura Suja
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-blue-700">
+                  Leitura Não Repetível
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-blue-700">
+                  Leitura Fantasma
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="px-4 py-3 text-sm font-medium">READ UNCOMMITTED</td>
-                <td className="px-4 py-3 text-sm text-red-600">Possible</td>
-                <td className="px-4 py-3 text-sm text-red-600">Possible</td>
-                <td className="px-4 py-3 text-sm text-red-600">Possible</td>
+                <td className="px-4 py-3 text-sm font-medium">
+                  READ UNCOMMITTED
+                </td>
+                <td className="px-4 py-3 text-sm text-red-600">Possível</td>
+                <td className="px-4 py-3 text-sm text-red-600">Possível</td>
+                <td className="px-4 py-3 text-sm text-red-600">Possível</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-sm font-medium">READ COMMITTED</td>
-                <td className="px-4 py-3 text-sm text-green-600">Prevented</td>
-                <td className="px-4 py-3 text-sm text-red-600">Possible</td>
-                <td className="px-4 py-3 text-sm text-red-600">Possible</td>
+                <td className="px-4 py-3 text-sm font-medium">
+                  READ COMMITTED
+                </td>
+                <td className="px-4 py-3 text-sm text-green-600">Prevenido</td>
+                <td className="px-4 py-3 text-sm text-red-600">Possível</td>
+                <td className="px-4 py-3 text-sm text-red-600">Possível</td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-sm font-medium">REPEATABLE READ</td>
-                <td className="px-4 py-3 text-sm text-green-600">Prevented</td>
-                <td className="px-4 py-3 text-sm text-green-600">Prevented</td>
-                <td className="px-4 py-3 text-sm text-red-600">Possible</td>
+                <td className="px-4 py-3 text-sm font-medium">
+                  REPEATABLE READ
+                </td>
+                <td className="px-4 py-3 text-sm text-green-600">Prevenido</td>
+                <td className="px-4 py-3 text-sm text-green-600">Prevenido</td>
+                <td className="px-4 py-3 text-sm text-red-600">Possível</td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-sm font-medium">SERIALIZABLE</td>
-                <td className="px-4 py-3 text-sm text-green-600">Prevented</td>
-                <td className="px-4 py-3 text-sm text-green-600">Prevented</td>
-                <td className="px-4 py-3 text-sm text-green-600">Prevented</td>
+                <td className="px-4 py-3 text-sm text-green-600">Prevenido</td>
+                <td className="px-4 py-3 text-sm text-green-600">Prevenido</td>
+                <td className="px-4 py-3 text-sm text-green-600">Prevenido</td>
               </tr>
             </tbody>
           </table>
         </div>
-        
+
         <p className="text-sm text-gray-600 mt-4">
-          Higher isolation levels provide more consistency but may reduce concurrency and performance. The appropriate level depends on your application's requirements.
+          Níveis de isolamento mais altos oferecem mais consistência, mas podem
+          reduzir a concorrência e o desempenho. O nível apropriado depende dos
+          requisitos da sua aplicação.
         </p>
       </div>
     </div>
