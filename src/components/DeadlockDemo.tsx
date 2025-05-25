@@ -28,7 +28,7 @@ export const DeadlockDemo = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([
     {
       id: 'tx1',
-      name: 'Transaction 1',
+      name: 'Transação 1',
       color: 'blue',
       locksHeld: [],
       locksWaiting: [],
@@ -46,7 +46,7 @@ export const DeadlockDemo = () => {
     },
     {
       id: 'tx2',
-      name: 'Transaction 2',
+      name: 'Transação 2',
       color: 'green',
       locksHeld: [],
       locksWaiting: [],
@@ -65,8 +65,8 @@ export const DeadlockDemo = () => {
   ]);
   
   const [resources, setResources] = useState<Resource[]>([
-    { id: 'res1', name: 'Account A', lockedBy: null, waitingTransactions: [] },
-    { id: 'res2', name: 'Account B', lockedBy: null, waitingTransactions: [] }
+    { id: 'res1', name: 'Conta A', lockedBy: null, waitingTransactions: [] },
+    { id: 'res2', name: 'Conta B', lockedBy: null, waitingTransactions: [] }
   ]);
   
   const [isRunning, setIsRunning] = useState(false);
@@ -82,7 +82,7 @@ export const DeadlockDemo = () => {
     setTransactions([
       {
         id: 'tx1',
-        name: 'Transaction 1',
+        name: 'Transação 1',
         color: 'blue',
         locksHeld: [],
         locksWaiting: [],
@@ -100,7 +100,7 @@ export const DeadlockDemo = () => {
       },
       {
         id: 'tx2',
-        name: 'Transaction 2',
+        name: 'Transação 2',
         color: 'green',
         locksHeld: [],
         locksWaiting: [],
@@ -118,8 +118,8 @@ export const DeadlockDemo = () => {
       }
     ]);
     setResources([
-      { id: 'res1', name: 'Account A', lockedBy: null, waitingTransactions: [] },
-      { id: 'res2', name: 'Account B', lockedBy: null, waitingTransactions: [] }
+      { id: 'res1', name: 'Conta A', lockedBy: null, waitingTransactions: [] },
+      { id: 'res2', name: 'Conta B', lockedBy: null, waitingTransactions: [] }
     ]);
     setIsRunning(false);
     setLog([]);
@@ -127,10 +127,10 @@ export const DeadlockDemo = () => {
   };
   
   const checkForDeadlock = () => {
-    // Check if there's a circular wait condition
+    // Verifica se existe condição de espera circular
     let hasDeadlock = false;
     
-    // If both transactions are waiting and each one is waiting for a resource held by the other
+    // Se ambas as transações estiverem esperando e cada uma estiver esperando por recurso detido pela outra
     const waitingTransactions = transactions.filter(tx => tx.status === 'waiting');
     
     if (waitingTransactions.length >= 2) {
@@ -140,9 +140,9 @@ export const DeadlockDemo = () => {
       const tx1WaitingFor = tx1.locksWaiting[0];
       const tx2WaitingFor = tx2.locksWaiting[0];
       
-      // Check if tx1 is waiting for a resource held by tx2
+      // Verifica se tx1 está esperando por recurso detido por tx2
       const res1 = resources.find(r => r.id === tx1WaitingFor);
-      // Check if tx2 is waiting for a resource held by tx1
+      // Verifica se tx2 está esperando por recurso detido por tx1
       const res2 = resources.find(r => r.id === tx2WaitingFor);
       
       if (res1 && res2 && res1.lockedBy === tx2.id && res2.lockedBy === tx1.id) {
@@ -152,9 +152,9 @@ export const DeadlockDemo = () => {
     
     if (hasDeadlock && !deadlockDetected) {
       setDeadlockDetected(true);
-      addToLog('❗ DEADLOCK DETECTED: Circular wait condition found');
+      addToLog('❗ DEADLOCK DETECTADO: Condição de espera circular encontrada');
       
-      // Mark transactions as deadlocked
+      // Marca transações como deadlocked
       setTransactions(prev => 
         prev.map(tx => 
           tx.status === 'waiting' ? { ...tx, status: 'deadlocked' } : tx
@@ -172,22 +172,22 @@ export const DeadlockDemo = () => {
     let newResources = [...resources];
     let madeProgress = false;
     
-    // Process each transaction
+    // Processa cada transação
     for (let i = 0; i < newTransactions.length; i++) {
       const tx = newTransactions[i];
       
-      // Skip completed or deadlocked transactions
+      // Pula transações concluídas ou em deadlock
       if (tx.status === 'completed' || tx.status === 'deadlocked') {
         continue;
       }
       
-      // If transaction is waiting, check if it can acquire the resource
+      // Se transação estiver esperando, verifica se pode adquirir recurso
       if (tx.status === 'waiting') {
         const resourceId = tx.locksWaiting[0];
         const resource = newResources.find(r => r.id === resourceId);
         
         if (resource && resource.lockedBy === null) {
-          // Resource is now available, acquire it
+          // Recurso disponível, adquire-o
           resource.lockedBy = tx.id;
           resource.waitingTransactions = resource.waitingTransactions.filter(id => id !== tx.id);
           
@@ -195,13 +195,13 @@ export const DeadlockDemo = () => {
           tx.locksWaiting = [];
           tx.status = 'running';
           
-          addToLog(`${tx.name} acquired lock on ${resource.name}`);
+          addToLog(`${tx.name} adquiriu bloqueio em ${resource.name}`);
           madeProgress = true;
         }
         continue;
       }
       
-      // Transaction is running, process current step
+      // Transação está executando, processa passo atual
       if (tx.currentStep < tx.steps.length) {
         const step = tx.steps[tx.currentStep];
         
@@ -211,15 +211,15 @@ export const DeadlockDemo = () => {
           
           if (resource) {
             if (resource.lockedBy === null) {
-              // Resource is available, acquire it
+              // Recurso disponível, adquire-o
               resource.lockedBy = tx.id;
               tx.locksHeld.push(resourceId);
               tx.currentStep++;
               
-              addToLog(`${tx.name} acquired lock on ${resource.name}`);
+              addToLog(`${tx.name} adquiriu bloqueio em ${resource.name}`);
               madeProgress = true;
             } else {
-              // Resource is locked by another transaction, wait for it
+              // Recurso está bloqueado por outra transação, espera
               tx.status = 'waiting';
               tx.locksWaiting.push(resourceId);
               
@@ -227,12 +227,12 @@ export const DeadlockDemo = () => {
                 resource.waitingTransactions.push(tx.id);
               }
               
-              addToLog(`${tx.name} is waiting for ${resource.name}`);
+              addToLog(`${tx.name} está esperando por ${resource.name}`);
               madeProgress = true;
             }
           }
         } else if (step.action === 'process') {
-          // Simulating processing time
+          // Simulando tempo de processamento
           tx.position += 1;
           if (tx.position >= (step.duration || 1)) {
             tx.position = 0;
@@ -244,19 +244,19 @@ export const DeadlockDemo = () => {
           const resource = newResources.find(r => r.id === resourceId);
           
           if (resource && resource.lockedBy === tx.id) {
-            // Release the resource
+            // Libera o recurso
             resource.lockedBy = null;
             tx.locksHeld = tx.locksHeld.filter(id => id !== resourceId);
             tx.currentStep++;
             
-            addToLog(`${tx.name} released lock on ${resource.name}`);
+            addToLog(`${tx.name} liberou bloqueio em ${resource.name}`);
             madeProgress = true;
           }
         }
       } else {
-        // Transaction completed all steps
+        // Passos concluídos
         tx.status = 'completed';
-        addToLog(`${tx.name} completed successfully`);
+        addToLog(`${tx.name} terminou a transação`);
         madeProgress = true;
       }
     }
@@ -264,260 +264,110 @@ export const DeadlockDemo = () => {
     setTransactions(newTransactions);
     setResources(newResources);
     
-    // Check if all transactions are either completed or deadlocked
-    const allDone = newTransactions.every(tx => 
-      tx.status === 'completed' || tx.status === 'deadlocked'
-    );
-    
-    if (allDone) {
-      setIsRunning(false);
-      if (newTransactions.some(tx => tx.status === 'deadlocked')) {
-        addToLog('Simulation stopped due to deadlock');
-      } else {
-        addToLog('All transactions completed successfully');
-      }
+    if (!madeProgress) {
+      addToLog('Nenhuma progressão possível no passo atual.');
     }
     
-    // If no transaction made progress, check for deadlock
-    if (!madeProgress && isRunning) {
-      checkForDeadlock();
-    }
+    checkForDeadlock();
   };
   
   useEffect(() => {
     let interval: NodeJS.Timeout | null = null;
-    
-    if (isRunning) {
+    if (isRunning && !deadlockDetected) {
       interval = setInterval(() => {
         progressTransactions();
       }, speed);
     }
-    
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isRunning, transactions, resources, speed]);
+  }, [isRunning, speed, transactions, resources, deadlockDetected]);
   
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h3 className="text-xl font-bold text-blue-600">Deadlock Simulator</h3>
-        
-        <div className="flex space-x-3">
-          <button
-            onClick={() => setIsRunning(!isRunning)}
-            disabled={deadlockDetected || transactions.every(tx => tx.status === 'completed')}
-            className={`p-2 rounded-md ${
-              isRunning 
-                ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' 
-                : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
-            } transition-colors`}
+    <div className="p-4 max-w-3xl mx-auto font-sans">
+      <h1 className="text-3xl font-bold mb-4">Simulador de DeadLock</h1>
+      <p className="mb-6">
+        Esta demonstração simula duas transações que tentam adquirir bloqueios em duas contas (recursos) e mostra como pode ocorrer um deadlock.
+      </p>
+      
+      <div className="mb-6 flex gap-4">
+        <button
+          onClick={() => setIsRunning(!isRunning)}
+          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          aria-label={isRunning ? 'Pausar simulação' : 'Iniciar simulação'}
+        >
+          {isRunning ? <Pause size={20} /> : <Play size={20} />}
+          {isRunning ? 'Pausar' : 'Iniciar'}
+        </button>
+        <button
+          onClick={resetDemo}
+          className="flex items-center gap-2 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+          aria-label="Resetar simulação"
+        >
+          <RotateCcw size={20} />
+          Resetar
+        </button>
+        <label className="flex items-center gap-2 ml-auto">
+          Velocidade:
+          <input
+            type="range"
+            min={200}
+            max={2000}
+            step={100}
+            value={speed}
+            onChange={e => setSpeed(Number(e.target.value))}
+            className="cursor-pointer"
+            aria-label="Controle de velocidade"
+          />
+          <span>{(speed / 1000).toFixed(1)}s</span>
+        </label>
+      </div>
+      
+      <div className="mb-6 grid grid-cols-2 gap-6">
+        {transactions.map(tx => (
+          <div
+            key={tx.id}
+            className={`p-4 border rounded shadow ${tx.status === 'deadlocked' ? 'border-red-600 bg-red-100' : 'border-gray-300'} `}
+            aria-live="polite"
           >
-            {isRunning ? <Pause size={20} /> : <Play size={20} />}
-          </button>
-          
-          <button
-            onClick={resetDemo}
-            className="p-2 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
-          >
-            <RotateCcw size={20} />
-          </button>
-        </div>
+            <h2 className="font-semibold mb-2" style={{ color: tx.color }}>
+              {tx.name} {tx.status === 'deadlocked' && <AlertTriangle size={18} className="inline text-red-600" />}
+            </h2>
+            <p>Status: <strong>{tx.status === 'running' ? 'Executando' : tx.status === 'waiting' ? 'Esperando' : tx.status === 'deadlocked' ? 'Deadlock' : 'Concluído'}</strong></p>
+            <p>Bloqueios adquiridos: {tx.locksHeld.length > 0 ? tx.locksHeld.map(id => resources.find(r => r.id === id)?.name).join(', ') : 'Nenhum'}</p>
+            <p>Bloqueios aguardando: {tx.locksWaiting.length > 0 ? tx.locksWaiting.map(id => resources.find(r => r.id === id)?.name).join(', ') : 'Nenhum'}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div className="mb-6">
+        <h3 className="font-semibold mb-2">Recursos</h3>
+        <ul>
+          {resources.map(res => (
+            <li key={res.id} className="mb-1">
+              <strong>{res.name}:</strong> {res.lockedBy ? `Bloqueado por ${transactions.find(tx => tx.id === res.lockedBy)?.name}` : 'Disponível'}
+              {res.waitingTransactions.length > 0 && (
+                <span> (Esperando: {res.waitingTransactions.map(id => transactions.find(tx => tx.id === id)?.name).join(', ')})</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div className="mb-6 max-h-48 overflow-y-auto border rounded p-2 bg-gray-50">
+        <h3 className="font-semibold mb-2">Log da Simulação</h3>
+        <ul className="text-sm font-mono space-y-1">
+          {log.map((entry, idx) => (
+            <li key={idx}>{entry}</li>
+          ))}
+        </ul>
       </div>
       
       {deadlockDetected && (
-        <div className="mb-6 bg-red-50 border border-red-200 rounded-md p-4 flex items-start">
-          <AlertTriangle className="text-red-500 mr-3 flex-shrink-0 mt-0.5" size={20} />
-          <div>
-            <h4 className="font-semibold text-red-700">Deadlock Detected!</h4>
-            <p className="text-sm text-red-600">
-              A circular wait condition has been detected where each transaction is waiting for a resource held by another, creating a standstill.
-            </p>
-          </div>
+        <div className="p-4 bg-red-100 border border-red-400 rounded text-red-700 font-semibold" role="alert" aria-live="assertive">
+          ❗ Deadlock detectado! A simulação foi pausada.
         </div>
       )}
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        <div>
-          <h4 className="font-semibold mb-4">Transactions</h4>
-          <div className="space-y-4">
-            {transactions.map(tx => (
-              <div 
-                key={tx.id} 
-                className={`border rounded-md p-4 ${
-                  tx.status === 'deadlocked' 
-                    ? 'border-red-300 bg-red-50' 
-                    : tx.status === 'completed'
-                    ? 'border-green-300 bg-green-50'
-                    : tx.status === 'waiting'
-                    ? 'border-amber-300 bg-amber-50'
-                    : `border-${tx.color}-300 bg-${tx.color}-50`
-                }`}
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <h5 className={`font-medium ${
-                    tx.status === 'deadlocked' 
-                      ? 'text-red-700' 
-                      : tx.status === 'completed'
-                      ? 'text-green-700'
-                      : tx.status === 'waiting'
-                      ? 'text-amber-700'
-                      : `text-${tx.color}-700`
-                  }`}>
-                    {tx.name}
-                  </h5>
-                  <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-                    tx.status === 'deadlocked' 
-                      ? 'bg-red-200 text-red-800' 
-                      : tx.status === 'completed'
-                      ? 'bg-green-200 text-green-800'
-                      : tx.status === 'waiting'
-                      ? 'bg-amber-200 text-amber-800'
-                      : 'bg-blue-200 text-blue-800'
-                  }`}>
-                    {tx.status.charAt(0).toUpperCase() + tx.status.slice(1)}
-                  </span>
-                </div>
-                
-                <div className="text-sm">
-                  <div className="mb-1">
-                    <span className="text-gray-600">Locks held: </span>
-                    {tx.locksHeld.length > 0 
-                      ? tx.locksHeld.map(lockId => {
-                          const resource = resources.find(r => r.id === lockId);
-                          return resource ? resource.name : lockId;
-                        }).join(', ')
-                      : 'None'
-                    }
-                  </div>
-                  
-                  <div>
-                    <span className="text-gray-600">Waiting for: </span>
-                    {tx.locksWaiting.length > 0 
-                      ? tx.locksWaiting.map(lockId => {
-                          const resource = resources.find(r => r.id === lockId);
-                          return resource ? resource.name : lockId;
-                        }).join(', ')
-                      : 'None'
-                    }
-                  </div>
-                </div>
-                
-                {tx.status !== 'completed' && tx.status !== 'deadlocked' && tx.currentStep < tx.steps.length && (
-                  <div className="mt-2">
-                    <div className="text-xs text-gray-600 mb-1">
-                      {tx.steps[tx.currentStep].action === 'acquire' 
-                        ? `Trying to acquire ${resources.find(r => r.id === tx.steps[tx.currentStep].resource)?.name}`
-                        : tx.steps[tx.currentStep].action === 'release'
-                        ? `Will release ${resources.find(r => r.id === tx.steps[tx.currentStep].resource)?.name}`
-                        : 'Processing data...'}
-                    </div>
-                    
-                    {tx.steps[tx.currentStep].action === 'process' && (
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div 
-                          className="bg-blue-600 h-2 rounded-full"
-                          style={{ 
-                            width: `${(tx.position / (tx.steps[tx.currentStep].duration || 1)) * 100}%` 
-                          }}
-                        ></div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        <div>
-          <h4 className="font-semibold mb-4">Resources</h4>
-          <div className="space-y-4">
-            {resources.map(resource => {
-              const lockingTx = transactions.find(tx => tx.id === resource.lockedBy);
-              
-              return (
-                <div 
-                  key={resource.id} 
-                  className={`border rounded-md p-4 ${
-                    resource.lockedBy 
-                      ? lockingTx 
-                        ? `border-${lockingTx.color}-300 bg-${lockingTx.color}-50` 
-                        : 'border-gray-300 bg-gray-50'
-                      : 'border-gray-300 bg-gray-50'
-                  }`}
-                >
-                  <h5 className="font-medium mb-2">{resource.name}</h5>
-                  
-                  <div className="text-sm">
-                    <div className="mb-1">
-                      <span className="text-gray-600">Status: </span>
-                      {resource.lockedBy 
-                        ? <span className="text-red-600 font-medium">Locked</span>
-                        : <span className="text-green-600 font-medium">Available</span>
-                      }
-                    </div>
-                    
-                    {resource.lockedBy && (
-                      <div className="mb-1">
-                        <span className="text-gray-600">Locked by: </span>
-                        <span className="font-medium">{
-                          transactions.find(tx => tx.id === resource.lockedBy)?.name || resource.lockedBy
-                        }</span>
-                      </div>
-                    )}
-                    
-                    {resource.waitingTransactions.length > 0 && (
-                      <div>
-                        <span className="text-gray-600">Waiting transactions: </span>
-                        <span className="font-medium">{
-                          resource.waitingTransactions.map(txId => 
-                            transactions.find(tx => tx.id === txId)?.name || txId
-                          ).join(', ')
-                        }</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          
-          <div className="mt-6">
-            <h4 className="font-semibold mb-2">Transaction Log</h4>
-            <div className="border border-gray-200 rounded-md bg-gray-50 h-[200px] overflow-y-auto">
-              {log.length === 0 ? (
-                <p className="text-gray-500 p-3 text-center italic">No activity yet. Start the simulation!</p>
-              ) : (
-                <ul className="divide-y divide-gray-200">
-                  {log.map((entry, index) => (
-                    <li key={index} className="px-3 py-2 text-sm">
-                      {entry.includes('DEADLOCK') ? (
-                        <span className="text-red-600 font-medium">{entry}</span>
-                      ) : (
-                        <span>{entry}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div className="bg-blue-50 p-4 rounded-lg">
-        <h4 className="font-semibold mb-2">What's Happening?</h4>
-        <p className="text-sm text-gray-700 mb-2">
-          This simulation demonstrates a classic deadlock scenario:
-        </p>
-        <ul className="text-sm text-gray-700 space-y-1 list-disc pl-5">
-          <li><span className="font-medium">Transaction 1</span> acquires Account A, then tries to acquire Account B</li>
-          <li><span className="font-medium">Transaction 2</span> acquires Account B, then tries to acquire Account A</li>
-          <li>Each transaction is holding a resource the other needs, creating a <span className="font-medium">circular wait</span> condition</li>
-          <li>Without intervention, both transactions will wait indefinitely—this is a deadlock</li>
-        </ul>
-      </div>
     </div>
   );
 };
