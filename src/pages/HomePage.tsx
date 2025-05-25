@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const HomePage = () => {
   const features = [
     {
-      icon: <Database className="h-6 w-6 text-blue-600" />,
+      icon: <Database className="h-6 w-6 text-purple-600" />,
       title: 'Transações',
       description: 'Aprenda como as transações oferecem uma forma confiável de agrupar operações em um banco de dados.',
       link: '/transactions'
@@ -33,25 +33,25 @@ export const HomePage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-16">
+      <section className="bg-gradient-to-b from-purple-600 to-purple-700 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
              Entendendo as Transações de Bancos de Dados
             </h1>
-            <p className="text-xl mb-8 text-blue-100">
+            <p className="text-xl mb-8 text-purple-100">
               Uma jornada visual e interativa pelos conceitos fundamentais das transações em banco de dados.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/transactions"
-                className="px-6 py-3 bg-white text-blue-700 font-medium rounded-lg hover:bg-blue-50 transition-colors duration-300"
+                className="px-6 py-3 bg-white text-purple-700 font-medium rounded-lg hover:bg-purple-50 transition-colors duration-300"
               >
                 Aprenda aqui!
               </Link>
               <Link
                 to="/quiz"
-                className="px-6 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-400 transition-colors duration-300"
+                className="px-6 py-3 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-400 transition-colors duration-300"
               >
                 Teste seu conhecimento!
               </Link>
@@ -84,7 +84,7 @@ export const HomePage = () => {
                 <p className="text-gray-600 mb-4">{feature.description}</p>
                 <Link 
                   to={feature.link}
-                  className="text-blue-600 font-medium flex items-center hover:text-blue-700 transition-colors"
+                  className="text-purple-600 font-medium flex items-center hover:text-purple-700 transition-colors"
                 >
                   Saiba mais <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
@@ -106,25 +106,25 @@ export const HomePage = () => {
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-3">
                       <span className="text-sm font-medium">1</span>
                     </div>
                     <p className="text-gray-700">Simule transações de banco de dados com nossas ferramentas visuais.</p>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-3">
                       <span className="text-sm font-medium">2</span>
                     </div>
                     <p className="text-gray-700">Veja o que acontece durante as operações de COMMIT e ROLLBACK.</p>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-3">
                       <span className="text-sm font-medium">3</span>
                     </div>
                     <p className="text-gray-700">Veja os deadlocks acontecendo e aprenda como evitá-los.</p>
                   </li>
                   <li className="flex items-start">
-                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mr-3">
+                    <div className="flex-shrink-0 h-6 w-6 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-3">
                       <span className="text-sm font-medium">4</span>
                     </div>
                     <p className="text-gray-700">Teste seu conhecimento com os Quizzes</p>
@@ -133,19 +133,19 @@ export const HomePage = () => {
               </div>
               
               <div className="md:w-1/2 bg-white p-6 rounded-lg shadow-md">
-                <div className="aspect-w-16 aspect-h-9 bg-blue-50 rounded-md p-4 flex items-center justify-center">
+                <div className="aspect-w-16 aspect-h-9 bg-purple-50 rounded-md p-4 flex items-center justify-center">
                   <div className="text-center">
-                    <Database className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-                    <p className="text-gray-700 font-medium">Simulações interativas ajudam você a entender como as transações funcionam no mundo real.</p>
+                    <Database className="h-16 w-16 text-purple-600 mx-auto mb-4" />
+                    <p className="text-gray-700 font-medium">Interactive simulations help you understand how transactions work in the real world</p>
                   </div>
                 </div>
                 
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   <Link
                     to="/transactions"
-                    className="py-3 px-4 bg-blue-100 text-blue-700 rounded-md font-medium text-center hover:bg-blue-200 transition-colors"
+                    className="py-3 px-4 bg-purple-100 text-purple-700 rounded-md font-medium text-center hover:bg-purple-200 transition-colors"
                   >
-                    Testar Demo de Transação
+                    Try Transaction Demo
                   </Link>
                   <Link
                     to="/deadlock"
@@ -161,12 +161,12 @@ export const HomePage = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="py-12 bg-blue-600 text-white">
+      <section className="py-12 bg-purple-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-6">Pronto para masterizar os conceitos de transação?</h2>
           <Link
             to="/transactions"
-            className="px-8 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors inline-flex items-center"
+            className="px-8 py-3 bg-white text-purple-600 font-medium rounded-lg hover:bg-purple-50 transition-colors inline-flex items-center"
           >
             Comece aprendendo agora! <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
