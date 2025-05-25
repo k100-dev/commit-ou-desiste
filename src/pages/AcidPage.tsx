@@ -7,9 +7,9 @@ export const AcidPage = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <div className="mb-10 text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">ACID Properties</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">Propriedades ACID</h1>
           <p className="text-xl text-gray-600">
-            The four key properties that ensure reliable database transactions
+            As quatro propriedades principais que garantem transações confiáveis em bancos de dados
           </p>
         </div>
         
@@ -21,9 +21,9 @@ export const AcidPage = () => {
                   <Database className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-800 mb-2">What is ACID?</h2>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-2">O que é ACID?</h2>
                   <p className="text-gray-700">
-                    ACID is an acronym that represents the four essential properties that guarantee reliable processing of database transactions, even in the event of errors, power failures, or other issues.
+                    ACID é um acrônimo que representa as quatro propriedades essenciais que garantem o processamento confiável de transações em bancos de dados, mesmo em caso de erros, quedas de energia ou outros problemas.
                   </p>
                 </div>
               </div>
@@ -33,94 +33,94 @@ export const AcidPage = () => {
               <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-violet-500">
                 <div className="flex items-center mb-3">
                   <Atom className="h-6 w-6 text-violet-600 mr-2" />
-                  <h3 className="text-xl font-semibold text-violet-700">A - Atomicity</h3>
+                  <h3 className="text-xl font-semibold text-violet-700">A - Atomicidade</h3>
                 </div>
                 <p className="text-gray-700">
-                  All operations in a transaction succeed or all fail. There are no partial transactions. It's "all or nothing."
+                  Todas as operações dentro de uma transação são concluídas com sucesso ou nenhuma delas é aplicada. Não existem transações parciais. É “tudo ou nada.”
                 </p>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-emerald-500">
                 <div className="flex items-center mb-3">
                   <Shield className="h-6 w-6 text-emerald-600 mr-2" />
-                  <h3 className="text-xl font-semibold text-emerald-700">C - Consistency</h3>
+                  <h3 className="text-xl font-semibold text-emerald-700">C - Consistência</h3>
                 </div>
                 <p className="text-gray-700">
-                  A transaction can only bring the database from one valid state to another, maintaining all rules and constraints.
+                  Uma transação só pode levar o banco de dados de um estado válido para outro, mantendo todas as regras e restrições.
                 </p>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-amber-500">
                 <div className="flex items-center mb-3">
                   <Users className="h-6 w-6 text-amber-600 mr-2" />
-                  <h3 className="text-xl font-semibold text-amber-700">I - Isolation</h3>
+                  <h3 className="text-xl font-semibold text-amber-700">I - Isolamento</h3>
                 </div>
                 <p className="text-gray-700">
-                  Concurrent transactions do not interfere with each other, as if they were executed sequentially.
+                  Transações concorrentes não interferem umas nas outras, como se fossem executadas sequencialmente.
                 </p>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-5 border-l-4 border-l-blue-500">
                 <div className="flex items-center mb-3">
                   <Database className="h-6 w-6 text-blue-600 mr-2" />
-                  <h3 className="text-xl font-semibold text-blue-700">D - Durability</h3>
+                  <h3 className="text-xl font-semibold text-blue-700">D - Durabilidade</h3>
                 </div>
                 <p className="text-gray-700">
-                  Once a transaction is committed, its changes remain permanent, even if the system crashes immediately afterward.
+                  Uma vez que a transação é confirmada (commit), suas alterações permanecem permanentes, mesmo que o sistema falhe logo após.
                 </p>
               </div>
             </div>
           </section>
           
           <section>
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Detailed ACID Properties</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Propriedades ACID detalhadas</h2>
             <AcidProperties />
           </section>
           
           <section className="bg-blue-50 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Why ACID Matters</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Por que o ACID importa</h2>
             <div className="space-y-4">
               <p className="text-gray-700">
-                ACID properties provide crucial guarantees for applications where data integrity is critical. Here are some real-world scenarios where ACID compliance is essential:
+                As propriedades ACID fornecem garantias cruciais para aplicações onde a integridade dos dados é fundamental. Aqui estão alguns cenários reais onde a conformidade com ACID é essencial:
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                 <div className="bg-white p-5 rounded-md shadow-sm">
-                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Financial Systems</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Sistemas Financeiros</h3>
                   <p className="text-gray-700">
-                    Banking applications need absolute reliability for transactions like money transfers. A partial transaction could result in money disappearing or being duplicated.
+                    Aplicações bancárias precisam de total confiabilidade para transações como transferências de dinheiro. Uma transação parcial pode causar desaparecimento ou duplicação de valores.
                   </p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-md shadow-sm">
                   <h3 className="font-semibold text-lg mb-2 text-blue-700">E-commerce</h3>
                   <p className="text-gray-700">
-                    Order processing involves updating inventory, processing payments, and creating order records. ACID ensures that a customer isn't charged if the order fails to complete.
+                    O processamento de pedidos envolve atualizar estoque, processar pagamentos e criar registros. ACID garante que o cliente não seja cobrado se o pedido não for concluído.
                   </p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-md shadow-sm">
-                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Healthcare Records</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Registros de Saúde</h3>
                   <p className="text-gray-700">
-                    Medical systems need to ensure patient data is never corrupted or partially updated, as incomplete or inconsistent medical records can lead to serious consequences.
+                    Sistemas médicos precisam assegurar que dados do paciente nunca sejam corrompidos ou atualizados parcialmente, pois registros incompletos podem causar graves consequências.
                   </p>
                 </div>
                 
                 <div className="bg-white p-5 rounded-md shadow-sm">
-                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Reservation Systems</h3>
+                  <h3 className="font-semibold text-lg mb-2 text-blue-700">Sistemas de Reservas</h3>
                   <p className="text-gray-700">
-                    Hotel or airline booking systems need to ensure that reservations are properly created or cancelled, especially when multiple users are trying to book the same resource.
+                    Sistemas de reserva de hotéis ou voos precisam garantir que as reservas sejam corretamente criadas ou canceladas, especialmente com múltiplos usuários tentando reservar o mesmo recurso.
                   </p>
                 </div>
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm mt-6">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">ACID vs. BASE: Different Database Models</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">ACID vs. BASE: Modelos de Banco de Dados Diferentes</h3>
                 <p className="text-gray-700 mb-3">
-                  Not all database systems prioritize ACID compliance. NoSQL databases often follow the BASE model (Basically Available, Soft state, Eventually consistent) which sacrifices some consistency for better availability and partition tolerance.
+                  Nem todos os sistemas de banco de dados priorizam a conformidade ACID. Bancos NoSQL frequentemente seguem o modelo BASE (Basicamente Disponível, Estado Suave, Consistência Eventual), que sacrifica um pouco de consistência para garantir maior disponibilidade e tolerância a partições.
                 </p>
                 <p className="text-gray-700">
-                  Choose ACID-compliant databases when data integrity is critical. Consider BASE databases when high availability and scalability are more important than strict consistency.
+                  Escolha bancos ACID quando a integridade dos dados for crítica. Considere bancos BASE quando alta disponibilidade e escalabilidade forem mais importantes do que consistência estrita.
                 </p>
               </div>
             </div>
