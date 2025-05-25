@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
-            <Database className="h-6 w-6 mr-2 text-purple-400" /> 
+            <Database className="h-6 w-6 mr-2 text-slate-400" /> 
             <span className="font-bold text-xl">Commit ou Desiste</span>
           </div>
           
