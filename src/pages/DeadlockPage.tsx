@@ -9,7 +9,7 @@ export const DeadlockPage = () => {
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Deadlocks</h1>
           <p className="text-xl text-gray-600">
-            Understanding and preventing the circular waiting problem
+            Entendendo e prevenindo o problema de espera circular
           </p>
         </div>
         
@@ -21,9 +21,9 @@ export const DeadlockPage = () => {
                   <Clock className="h-6 w-6 text-red-600" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-800 mb-2">What is a Deadlock?</h2>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-2">O que é um Deadlock?</h2>
                   <p className="text-gray-700">
-                    A deadlock occurs when two or more transactions are waiting indefinitely for each other to release locks. This creates a circular dependency where none of the transactions can proceed, resulting in a standstill.
+                    Um deadlock ocorre quando duas ou mais transações ficam esperando indefinidamente que a outra libere recursos. Isso cria uma dependência circular onde nenhuma das transações pode prosseguir, resultando em um impasse.
                   </p>
                 </div>
               </div>
@@ -31,36 +31,36 @@ export const DeadlockPage = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-md p-5">
-                <h3 className="font-semibold text-lg mb-3 text-red-700">Classic Deadlock Scenario</h3>
+                <h3 className="font-semibold text-lg mb-3 text-red-700">Cenário Clássico de Deadlock</h3>
                 <div className="space-y-4">
                   <div className="bg-gray-50 p-3 rounded-md">
-                    <p className="text-sm font-medium text-gray-700 mb-1">Transaction 1:</p>
+                    <p className="text-sm font-medium text-gray-700 mb-1">Transação 1:</p>
                     <ol className="list-decimal pl-5 text-sm text-gray-700">
-                      <li>Acquires a lock on resource A</li>
-                      <li>Tries to acquire a lock on resource B, but must wait because Transaction 2 holds it</li>
+                      <li>Adquire um bloqueio no recurso A</li>
+                      <li>Tenta adquirir um bloqueio no recurso B, mas precisa esperar porque a Transação 2 o detém</li>
                     </ol>
                   </div>
                   
                   <div className="bg-gray-50 p-3 rounded-md">
-                    <p className="text-sm font-medium text-gray-700 mb-1">Transaction 2:</p>
+                    <p className="text-sm font-medium text-gray-700 mb-1">Transação 2:</p>
                     <ol className="list-decimal pl-5 text-sm text-gray-700">
-                      <li>Acquires a lock on resource B</li>
-                      <li>Tries to acquire a lock on resource A, but must wait because Transaction 1 holds it</li>
+                      <li>Adquire um bloqueio no recurso B</li>
+                      <li>Tenta adquirir um bloqueio no recurso A, mas precisa esperar porque a Transação 1 o detém</li>
                     </ol>
                   </div>
                   
                   <div className="bg-red-50 p-3 rounded-md">
                     <p className="text-sm text-red-700">
-                      <strong>Result:</strong> Both transactions are blocked indefinitely, waiting for resources that will never be released.
+                      <strong>Resultado:</strong> Ambas as transações ficam bloqueadas indefinidamente, esperando por recursos que nunca serão liberados.
                     </p>
                   </div>
                 </div>
               </div>
               
               <div className="bg-white rounded-lg shadow-md p-5">
-                <h3 className="font-semibold text-lg mb-3 text-blue-700">Four Conditions for Deadlock</h3>
+                <h3 className="font-semibold text-lg mb-3 text-blue-700">Quatro Condições para o Deadlock</h3>
                 <p className="text-sm text-gray-700 mb-3">
-                  All four conditions must be present for a deadlock to occur:
+                  Todas as quatro condições devem estar presentes para que ocorra um deadlock:
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
@@ -68,7 +68,7 @@ export const DeadlockPage = () => {
                       <span className="text-xs font-medium">1</span>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-medium">Mutual Exclusion:</span> Resources cannot be shared simultaneously
+                      <span className="font-medium">Exclusão Mútua:</span> Recursos não podem ser compartilhados simultaneamente
                     </p>
                   </li>
                   <li className="flex items-start">
@@ -76,7 +76,7 @@ export const DeadlockPage = () => {
                       <span className="text-xs font-medium">2</span>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-medium">Hold and Wait:</span> Transactions hold resources while waiting for others
+                      <span className="font-medium">Manter e Esperar:</span> Transações mantêm recursos enquanto aguardam outros
                     </p>
                   </li>
                   <li className="flex items-start">
@@ -84,7 +84,7 @@ export const DeadlockPage = () => {
                       <span className="text-xs font-medium">3</span>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-medium">No Preemption:</span> Resources cannot be forcibly taken from transactions
+                      <span className="font-medium">Sem Preempção:</span> Recursos não podem ser tomados à força das transações
                     </p>
                   </li>
                   <li className="flex items-start">
@@ -92,7 +92,7 @@ export const DeadlockPage = () => {
                       <span className="text-xs font-medium">4</span>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-medium">Circular Wait:</span> A circular chain of transactions exists, each waiting for a resource held by the next
+                      <span className="font-medium">Espera Circular:</span> Existe uma cadeia circular de transações, cada uma esperando por um recurso detido pela próxima
                     </p>
                   </li>
                 </ul>
@@ -103,62 +103,62 @@ export const DeadlockPage = () => {
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
               <RefreshCw className="mr-2 text-red-600" size={24} />
-              Deadlock Simulation
+              Simulação de Deadlock
             </h2>
             <DeadlockDemo />
           </section>
           
           <section className="bg-blue-50 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Preventing and Handling Deadlocks</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Prevenção e Tratamento de Deadlocks</h2>
             
             <div className="space-y-6">
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">Deadlock Prevention Strategies</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">Estratégias de Prevenção de Deadlocks</h3>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>
-                    <span className="font-medium">Resource Ordering:</span> Always acquire locks in a consistent order across all transactions. If all transactions access resources in the same order, circular wait cannot occur.
+                    <span className="font-medium">Ordenação de Recursos:</span> Sempre adquira os bloqueios em uma ordem consistente entre todas as transações. Se todas acessarem os recursos na mesma ordem, a espera circular não pode ocorrer.
                   </li>
                   <li>
-                    <span className="font-medium">Lock Timeouts:</span> Set a maximum time a transaction will wait for a lock. If the timeout expires, the transaction is rolled back and can be retried.
+                    <span className="font-medium">Tempo de Espera dos Bloqueios:</span> Defina um tempo máximo que uma transação irá esperar por um bloqueio. Se o tempo expirar, a transação é desfeita e pode ser tentada novamente.
                   </li>
                   <li>
-                    <span className="font-medium">Lock All Resources at Once:</span> Acquire all needed locks at the beginning of a transaction to prevent the hold-and-wait condition.
+                    <span className="font-medium">Bloquear Todos os Recursos de Uma Vez:</span> Adquira todos os bloqueios necessários no início da transação para evitar a condição de manter e esperar.
                   </li>
                   <li>
-                    <span className="font-medium">Deadlock Detection:</span> Implement algorithms to detect cycles in the wait-for graph and automatically resolve deadlocks by rolling back selected transactions.
+                    <span className="font-medium">Detecção de Deadlocks:</span> Implemente algoritmos para detectar ciclos no grafo de espera e resolva automaticamente os deadlocks desfazendo transações selecionadas.
                   </li>
                 </ul>
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">How Database Systems Handle Deadlocks</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">Como os Sistemas de Banco de Dados Lidam com Deadlocks</h3>
                 <p className="text-gray-700 mb-3">
-                  Different database systems handle deadlocks in various ways:
+                  Diferentes sistemas de banco de dados lidam com deadlocks de maneiras variadas:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
                   <li>
-                    <span className="font-medium">MySQL:</span> Automatically detects deadlocks and rolls back the transaction with the fewest changes to resolve the deadlock.
+                    <span className="font-medium">MySQL:</span> Detecta automaticamente deadlocks e desfaz a transação com menos alterações para resolver o problema.
                   </li>
                   <li>
-                    <span className="font-medium">PostgreSQL:</span> Checks for deadlocks automatically and terminates one of the transactions involved to break the cycle.
+                    <span className="font-medium">PostgreSQL:</span> Verifica automaticamente por deadlocks e encerra uma das transações envolvidas para quebrar o ciclo.
                   </li>
                   <li>
-                    <span className="font-medium">SQL Server:</span> Chooses a deadlock victim based on factors like which transaction is cheaper to roll back or transaction priority settings.
+                    <span className="font-medium">SQL Server:</span> Escolhe uma vítima de deadlock com base em fatores como qual transação é mais barata de desfazer ou a prioridade da transação.
                   </li>
                   <li>
-                    <span className="font-medium">Oracle:</span> Uses deadlock detection algorithms and automatically rolls back the transaction that completes the cycle.
+                    <span className="font-medium">Oracle:</span> Usa algoritmos de detecção de deadlock e desfaz automaticamente a transação que completa o ciclo.
                   </li>
                 </ul>
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">Best Practices for Application Developers</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">Melhores Práticas para Desenvolvedores de Aplicações</h3>
                 <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                  <li>Keep transactions as short as possible to reduce the likelihood of conflicts</li>
-                  <li>Access tables in the same order across all transactions</li>
-                  <li>Implement retry logic for transactions that fail due to deadlocks</li>
-                  <li>Monitor and log deadlock occurrences to identify problematic transaction patterns</li>
-                  <li>Consider using optimistic concurrency control for frequently contended resources</li>
+                  <li>Mantenha as transações o mais curtas possível para reduzir a chance de conflitos</li>
+                  <li>Acesse as tabelas na mesma ordem em todas as transações</li>
+                  <li>Implemente lógica de repetição para transações que falharem devido a deadlocks</li>
+                  <li>Monitore e registre ocorrências de deadlocks para identificar padrões problemáticos</li>
+                  <li>Considere usar controle de concorrência otimista para recursos frequentemente disputados</li>
                 </ul>
               </div>
             </div>
