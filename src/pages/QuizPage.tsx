@@ -7,9 +7,9 @@ export const QuizPage = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <div className="mb-10 text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">Test Your Knowledge</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">Teste Seus Conhecimentos</h1>
           <p className="text-xl text-gray-600">
-            Take this quiz to check your understanding of database transaction concepts
+            Faça este quiz para verificar seu entendimento sobre conceitos de transações em banco de dados
           </p>
         </div>
         
@@ -21,9 +21,9 @@ export const QuizPage = () => {
                   <BadgeCheck className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-800 mb-2">Database Transactions Quiz</h2>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-2">Quiz de Transações em Banco de Dados</h2>
                   <p className="text-gray-700">
-                    This quiz covers the main concepts we've explored, including transactions, ACID properties, concurrency issues, and deadlocks. Try your best to answer each question!
+                    Este quiz aborda os principais conceitos que exploramos, incluindo transações, propriedades ACID, problemas de concorrência e deadlocks. Faça o seu melhor para responder cada pergunta!
                   </p>
                 </div>
               </div>
@@ -33,38 +33,38 @@ export const QuizPage = () => {
           </section>
           
           <section className="bg-blue-50 rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Continue Learning</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">Continue Aprendendo</h2>
             <p className="text-gray-700 mb-6">
-              Database transactions are a foundational concept in database systems. To deepen your understanding, explore these related topics:
+              Transações em banco de dados são um conceito fundamental em sistemas de banco de dados. Para aprofundar seu entendimento, explore os seguintes tópicos relacionados:
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">Advanced Concepts</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">Conceitos Avançados</h3>
                 <ul className="list-disc pl-5 space-y-1 text-gray-700">
-                  <li>Two-Phase Commit Protocol</li>
-                  <li>Optimistic vs. Pessimistic Concurrency Control</li>
-                  <li>Multi-Version Concurrency Control (MVCC)</li>
-                  <li>Distributed Transactions</li>
-                  <li>Transaction Isolation in NoSQL Databases</li>
+                  <li>Protocolo de Commit em Duas Fases</li>
+                  <li>Controle de Concorrência Otimista vs. Pessimista</li>
+                  <li>Controle de Concorrência Multi-Versão (MVCC)</li>
+                  <li>Transações Distribuídas</li>
+                  <li>Isolamento de Transações em Bancos de Dados NoSQL</li>
                 </ul>
               </div>
               
               <div className="bg-white p-5 rounded-md shadow-sm">
-                <h3 className="font-semibold text-lg mb-2 text-blue-700">Recommended Resources</h3>
+                <h3 className="font-semibold text-lg mb-2 text-blue-700">Recursos Recomendados</h3>
                 <ul className="list-disc pl-5 space-y-1 text-gray-700">
                   <li>Database System Concepts (Silberschatz, Korth, Sudarshan)</li>
                   <li>Transaction Processing: Concepts and Techniques (Gray, Reuter)</li>
-                  <li>Your database system's official documentation</li>
-                  <li>Online courses on database management systems</li>
+                  <li>Documentação oficial do seu sistema de banco de dados</li>
+                  <li>Cursos online sobre sistemas de gerenciamento de banco de dados</li>
                 </ul>
               </div>
             </div>
             
             <div className="bg-green-50 p-4 rounded-md mt-6">
-              <h3 className="font-semibold text-lg mb-2 text-green-700">Congratulations!</h3>
+              <h3 className="font-semibold text-lg mb-2 text-green-700">Parabéns!</h3>
               <p className="text-gray-700">
-                By understanding database transactions and ACID properties, you've mastered one of the most important concepts in database systems. This knowledge is invaluable for building reliable and robust applications.
+                Ao compreender transações em banco de dados e as propriedades ACID, você dominou um dos conceitos mais importantes em sistemas de banco de dados. Esse conhecimento é inestimável para construir aplicações confiáveis e robustas.
               </p>
             </div>
           </section>
