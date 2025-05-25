@@ -75,14 +75,14 @@ export const InteractiveDemo = ({ steps, title }: InteractiveDemoProps) => {
               : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
           } transition-colors`}
         >
-          Previous
+          Voltar
         </button>
         
         <button
           onClick={handleReset}
           className="px-4 py-2 rounded bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors"
         >
-          Reset
+          Resetar
         </button>
         
         <button
@@ -94,7 +94,7 @@ export const InteractiveDemo = ({ steps, title }: InteractiveDemoProps) => {
               : 'bg-blue-600 text-white hover:bg-blue-700'
           } transition-colors`}
         >
-          Next
+          Próximo
         </button>
       </div>
     </div>
