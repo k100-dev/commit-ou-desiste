@@ -31,14 +31,14 @@ export const InteractiveDemo = ({ steps, title }: InteractiveDemoProps) => {
   
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h3 className="text-xl font-bold mb-4 text-blue-600">{title}</h3>
+      <h3 className="text-xl font-bold mb-4 text-purple-600">{title}</h3>
       
       <div className="mb-6">
         <div className="relative">
-          <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-100">
+          <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-100">
             <div 
               style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
-              className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500 transition-all duration-500"
+              className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500 transition-all duration-500"
             ></div>
           </div>
           <div className="flex justify-between">
@@ -47,8 +47,8 @@ export const InteractiveDemo = ({ steps, title }: InteractiveDemoProps) => {
                 key={index}
                 className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
                   index <= currentStep 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-blue-100 text-blue-600'
+                    ? 'bg-purple-600 text-white' 
+                    : 'bg-purple-100 text-purple-600'
                 }`}
               >
                 {index + 1}
@@ -72,7 +72,7 @@ export const InteractiveDemo = ({ steps, title }: InteractiveDemoProps) => {
           className={`px-4 py-2 rounded ${
             currentStep === 0
               ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-              : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
+              : 'bg-purple-100 text-purple-600 hover:bg-purple-200'
           } transition-colors`}
         >
           Voltar
@@ -91,7 +91,7 @@ export const InteractiveDemo = ({ steps, title }: InteractiveDemoProps) => {
           className={`px-4 py-2 rounded ${
             currentStep === steps.length - 1
               ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-              : 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-purple-600 text-white hover:bg-purple-700'
           } transition-colors`}
         >
           Próximo

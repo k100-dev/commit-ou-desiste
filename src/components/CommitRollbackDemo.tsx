@@ -66,19 +66,19 @@ export const CommitRollbackDemo = () => {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h3 className="text-xl font-bold mb-4 text-blue-600">Simulador COMMIT & ROLLBACK</h3>
+      <h3 className="text-xl font-bold mb-4 text-purple-600">Simulador COMMIT & ROLLBACK</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <div className="mb-6 bg-blue-50 p-4 rounded-lg">
+          <div className="mb-6 bg-purple-50 p-4 rounded-lg">
             <h4 className="font-semibold mb-2">Status da Conta</h4>
             <div className="mb-4">
               <p className="text-sm text-gray-600">Saldo Atual:</p>
-              <p className="text-2xl font-bold text-blue-700">R${balance.toFixed(2)}</p>
+              <p className="text-2xl font-bold text-purple-700">R${balance.toFixed(2)}</p>
             </div>
 
             {transactionActive && (
-              <div className="mb-4 border-t pt-4 border-blue-200">
+              <div className="mb-4 border-t pt-4 border-purple-200">
                 <p className="text-sm text-gray-600">Alterações Pendentes:</p>
                 <p className={`text-xl font-bold ${pendingChanges >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                   {pendingChanges >= 0 ? '+' : ''}{pendingChanges.toFixed(2)}
@@ -102,7 +102,7 @@ export const CommitRollbackDemo = () => {
               className={`w-full py-2 px-4 rounded-md ${
                 transactionActive
                   ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                  : 'bg-blue-600 text-white hover:bg-blue-700'
+                  : 'bg-purple-600 text-white hover:bg-purple-700'
               } transition-colors flex items-center justify-center gap-2`}
             >
               <DatabaseBackup size={18} />
@@ -199,7 +199,7 @@ export const CommitRollbackDemo = () => {
         </div>
       </div>
 
-      <div className="mt-6 bg-blue-50 p-4 rounded-lg">
+      <div className="mt-6 bg-purple-50 p-4 rounded-lg">
         <h4 className="font-semibold mb-2">O que está acontecendo?</h4>
         <p className="text-sm text-gray-700 mb-2">
           Esta simulação demonstra transações em banco de dados com operações de COMMIT e ROLLBACK:
