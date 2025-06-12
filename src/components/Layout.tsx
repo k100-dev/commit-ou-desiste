@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigation } from './Navigation';
 import { Footer } from './Footer';
+import { SupportButton } from './SupportButton';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ export const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <Footer />
+      <SupportButton />
     </div>
   );
 };
